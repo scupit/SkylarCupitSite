@@ -1,0 +1,54 @@
+#!/bin/sh
+
+# Disallow commits directly to develop or master
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [[ "$BRANCH" == "master" || "$BRANCH" == "develop" ]]; then
+	echo "Branch \"$BRANCH\" should not be committed to directly."
+	echo "Please commit to a separate branch, then have it merged into \"$BRANCH\"."
+	exit 1
+fi
+
+# Lint staged files before commit
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".tsx\{0,1\}$")
+TSLINT="$(git rev-parse --show-toplevel)/node_modules/.bin/tslint"
+
+if [[ "$STAGED_FILES" = "" ]]; then
+	exit 0
+fi
+
+PASS=true
+
+printf "\n\033[34mValidating Typescript:\033[0m\n"
+
+# Check for tslint
+if [[ ! -x "$TSLINT" ]]; then
+	printf "\t\033[41mPlease install TSLint\033[0m (npm i --save-dev tslint typescript)"
+	exit 1
+fi
+
+for FILE in $STAGED_FILES
+do
+	FILENAME="${FILE##*/}"
+	printf "\n\033[33m$FILENAME\033[0m"
+
+	# Actially lint the file
+	"$TSLINT" "$FILE"
+
+	if [[ "$?" == 0 ]]; then
+		printf "\n\\-------\033[32mTSLint Passed: $FILE\033[0m\n"
+	else
+		printf "\\-------\033[41mTSLint Failed: $FILE\033[0m\n"
+		PASS=false
+	fi
+done
+
+printf "\n\n\033[34mTypescript validation completed!\033[0m\n\n"
+
+if ! $PASS; then
+	printf "\033[41mCOMMIT FAILED:\033[0m Your commit contains files that should pass TSLint but do not. Please fix the TSLint errors and try again.\n"
+	exit 1
+else
+	printf "\033[42mCOMMIT SUCCEEDED\033[0m\n\n"
+fi
+
+exit $?

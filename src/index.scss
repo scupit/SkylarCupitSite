@@ -1,0 +1,52 @@
+@mixin hoverable-shadow {
+  &.raised {
+    box-shadow: 0 8px 7px -6px black;
+  }
+
+  &.hoverable {
+    box-shadow: none;
+    transition: box-shadow 0.2s ease-in-out;
+
+    &:hover {
+      @extend .raised;
+    }
+  }
+}
+
+body {
+  background-color: lightgoldenrodyellow;
+}
+
+div {
+  display: block;
+  background-color: white;
+  padding: 20px;
+
+  @include hoverable-shadow;
+}
+
+#card-container {
+  background-color: inherit;
+  display: flex;
+  justify-content: space-around;
+
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 200px;
+    min-width: 300px;
+
+    .card-text {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    @include hoverable-shadow;
+  }
+}
+
+#project-title-container {
+  text-align: center;
+}
