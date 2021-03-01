@@ -1,12 +1,13 @@
 {
-  "name": "webpack-for-caden",
+  "name": "web-base-project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack serve --open --config ./webpack.dev.js --mode development",
+    "build": "webpack --config ./webpack.dev.js --mode development",
+    "prod": "webpack --config ./webpack.prod.js --mode production",
     "confighooks": "run-script-os",
     "confighooks:win32": "del /Q .git\\hooks\\* && xcopy /s hooks\\* .git\\hooks",
     "confighooks:default": "rm -q .git/hooks.* && cp hooks/* .git/hooks"
