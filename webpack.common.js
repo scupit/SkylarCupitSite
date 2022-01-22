@@ -101,7 +101,7 @@ module.exports = {
   },
   entry: {
     index: './src/index.ts',
-    other_page: "./src/other-page/some.ts"
+    to_learn: "./src/to-learn/to-learn.ts"
   },
   output: {
     filename: 'js/[name].js',
@@ -115,11 +115,11 @@ module.exports = {
       chunks: ["index"]
     }),
     new HtmlWebpackPlugin({
-      filename: "other-page/index.html",
-      template: "src/other-page/another.mustache",
+      filename: "to-learn/index.html",
+      template: "src/to-learn/to-learn.mustache",
       // The "chunk name" must be the entry name for a js/ts file specified in "entry".
       // I don't think CSS files can go here, because those are processed as part of entry files.
-      chunks: ["other_page"]
+      chunks: ["to_learn"]
     }),
     new MiniCssExtractPlugin({
       filename: isDevMode ? 'css/[name].css' : 'css/[name].[hash].css',
