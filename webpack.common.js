@@ -42,7 +42,7 @@ module.exports = {
   },
   entry: {
     index: './src/index.ts',
-    to_learn: "./src/to-learn/to-learn.ts"
+    to_learn: "./src/other-page/some.ts"
   },
   output: {
     filename: '[name].js',
@@ -55,8 +55,8 @@ module.exports = {
       chunks: ["index"]
     }),
     new HtmlWebpackPlugin({
-      filename: "to-learn/index.html",
-      template: "src/to-learn/index.html",
+      filename: "other-page/index.html",
+      template: "src/other-page/another.html",
       // The "chunk name" must be the entry name for a js/ts file specified in "entry".
       // I don't think CSS files can go here, because those are processed as part of entry files.
       chunks: ["to_learn"]
