@@ -25,9 +25,36 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(sa|sc|c)ss$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: isDevMode
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDevMode
+            }
+          }
+        ]
+      },
+      {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: 'ts-loader'
+        use: {
+          loader: 'ts-loader',
+          options: {
+            compilerOptions: {
+              sourceMap: isDevMode
+            }
+          }
+        }
       },
       {
         test: /\.js$/,
@@ -63,16 +90,6 @@ module.exports = {
             }
           }
         }
-      },
-      {
-        test: /\.(sa|sc|c)ss$/i,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader
-          },
-          'css-loader',
-          'sass-loader'
-        ]
       }
     ]
   },
@@ -89,6 +106,7 @@ module.exports = {
   output: {
     filename: 'js/[name].js',
     chunkFilename: '[name].[id].js',
+    publicPath: "/"
   },
   plugins: [
     new HtmlWebpackPlugin({
