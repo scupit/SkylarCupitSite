@@ -14,7 +14,7 @@ Happy linting! 💖
 module.exports = {
     "env": {
         "browser": true,
-        "ES2021": true
+        "node": true
     },
     "extends": [
         "plugin:@typescript-eslint/recommended",
@@ -28,7 +28,6 @@ module.exports = {
     "plugins": [
         "eslint-plugin-import",
         "eslint-plugin-jsdoc",
-        "eslint-plugin-prefer-arrow",
         "@typescript-eslint",
         "@typescript-eslint/tslint"
     ],
@@ -151,7 +150,6 @@ module.exports = {
             "warn",
             "never"
         ],
-        "prefer-arrow/prefer-arrow-functions": "off",
         "prefer-const": "warn",
         "radix": "warn",
         "use-isnan": "warn",
