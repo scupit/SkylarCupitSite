@@ -1,3 +1,3 @@
-import "index.scss";
+import "./to-learn.scss";
 
 console.log("Loaded some other page!");

@@ -1,0 +1,26 @@
+@import "index.scss";
+
+.card-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  .card {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: lightcyan;
+    border: 2px solid grey;
+
+    h2 {
+      text-decoration: underline;
+    }
+  }
+
+  .card-tall {
+    grid-row: span 2 / auto;
+  }
+
+  .card-long {
+    grid-column: span 2 / auto;
+  }
+}
