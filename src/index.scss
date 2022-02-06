@@ -11,9 +11,9 @@ body {
   // background: linear-gradient(200deg, rgba(0, 225, 255, 0.8), rgba(0, 0, 0, 0.5) 70%),
   //             linear-gradient(to right, rgba(0,255,0,.8), rgba(0, 0, 0, 0.5) 70%),
   //             linear-gradient(300deg, rgba(0,0,255,.8), black 70%);
-  background: linear-gradient(200deg, rgba(0, 225, 255, 0.8), rgba(red, 0.2)),
-              linear-gradient(100deg, rgba(0, 255, 0, 1), rgba(black, 0.7)),
-              linear-gradient(300deg, rgba(0,0,255,.8), rgba(black, 0.3));
+  background: linear-gradient(200deg, rgba(0, 225, 255, 0.8), rgba(white, 0.2)),
+              linear-gradient(100deg, rgba(0, 255, 0, 1), rgba(black, 0.5)),
+              linear-gradient(300deg, rgba(0,0,255,.8), rgba(white, 0.3));
   background-size: contain;
 }
 
@@ -31,20 +31,42 @@ body {
   border-bottom: 2px solid grey;
 
   a {
+    position: relative;
     font-size: 1.5rem;
     text-decoration: none;
     color: $text-light;
     border-radius: 10px;
     padding: 5px;
-    transition: all 0.2s ease;
-  }
 
-  a:hover {
-    box-shadow: 0 5px 10px -5px black;
+    &:before {
+      content: "";
+      height: 3px;
+      border-radius: 1.5px;
+      background-color: white;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: all 0.3s ease;
+      transform: scaleX(0);
+    }
+
+    &:hover:before {
+      transform: scaleX(1);
+    }
   }
 
   .site-title {
     color: #72ff72;
+    transition: background-color 0.3s ease-in-out;
+
+    &:before {
+      background-color: #72ff72;
+    }
+    &:hover {
+      background-color: #4d5357;
+    }
   }
 }
 
