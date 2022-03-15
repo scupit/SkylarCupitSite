@@ -1,0 +1,64 @@
+@import "./mixins.scss";
+@import "./palette.scss";
+@import "./spacing.scss";
+
+.card-block {
+  display: grid;
+
+  .card {
+    @include slight-shadow;
+
+    background-color: lighten($primary, 13%);
+    padding: $spacing-small;
+    border-radius: 10px;
+    margin: $spacing-normal;
+
+    h3:first-child {
+      background-color: $primary;
+      border-radius: $spacing-small $spacing-small 0 0;
+      padding-left: $spacing-small;
+      padding-right: $spacing-small;
+      text-align: center;
+    }
+
+    ul, ol {
+      margin-top: $spacing-normal;
+      margin-bottom: $spacing-normal;
+    }
+  }
+
+  .title-card {
+    grid-column: 1 / -1;
+    padding: $spacing-large;
+    @include basic-gradient-bg($contact-box-color);
+
+    .page-title {
+      color: white;
+      font-size: 2.5rem;
+    }
+  }
+
+  .card-tall {
+    grid-row: span 2 / auto;
+  }
+
+  .card-long {
+    grid-column: span 2 / auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card-block {
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+
+    .card {
+      padding: $spacing-large;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .card-block {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}

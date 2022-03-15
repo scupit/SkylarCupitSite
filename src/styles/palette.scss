@@ -1,0 +1,17 @@
+// Palette
+$primary: #87c887;
+$secondary: #e9ffe9;
+$contact-box-color: #76e4c5;
+$bg-secondary: #6ed4a5;
+
+// $primary: #87c0c8;
+// $secondary: #e9f8ff;
+// $contact-box-color: #d1d07d;
+
+// $primary: #c88787;
+// $secondary: #ffe9e9;
+// $contact-box-color: #be1212;
+
+$accent: darken($primary, 10%);
+$dark-accent: darken($accent, 10%);
+$darkest-accent: darken($dark-accent, 10%);
