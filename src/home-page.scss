@@ -1,0 +1,26 @@
+@import "styles/index.scss";
+
+.split-card {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+
+  min-height: 50vh;
+  background-color: white;
+  padding: $spacing-normal;
+
+  & > div {
+    grid-column: 1 / span 1;
+    // grid-row: 1 / span 1;
+    // background-color: blue;
+
+    &:nth-child(3n) {
+      border-right: 5px solid black;
+    }
+    &:nth-child(3n + 1) {
+    }
+    &:nth-child(3n + 2) {
+      grid-column: 1 / span 2;
+      border-top: 5px solid black;
+    }
+  }
+}

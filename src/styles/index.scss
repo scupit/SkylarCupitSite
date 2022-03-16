@@ -4,7 +4,7 @@
 @import "styles/spacing.scss";
 
 body {
-  @include basic-gradient-bg($bg-secondary);
+  background-color: $bg-secondary;
   box-sizing: border-box;
   background-size: contain;
 }
@@ -19,9 +19,11 @@ ol, ul {
 
 #nav-area {
   display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
 
   width: 100%;
   background: linear-gradient(
@@ -33,20 +35,24 @@ ol, ul {
   );
 
   min-height: 3rem;
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid white;
+
+  // #nav-links-container {
+  // }
 
   a {
     color: white;
     position: relative;
     font-size: 1.3rem;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 5px;
     margin: 0 $spacing-small;
-    // background-color: $contact-box-color;
-    background-color: $darkest-accent;
+    transition: none 0.12s ease-out;
+    transition-property: background-color, box-shadow;
 
     &:hover {
+      @include slight-shadow;
       background-color: darken($contact-box-color, 20%);
     }
   }
@@ -59,27 +65,18 @@ ol, ul {
   }
 }
 
-#nav-links-container {
-  background-color: $dark-accent;
-  border-radius: 10px;
-}
-
 #content {
   padding: $spacing-normal;
 }
 
-@media screen and (min-width: 1000px) {
-  #nav-area {
-    flex-direction: row;
-  }
-}
 
-@media screen and (max-width: 1000px) {
-  :root {
-    font-size: 30pt;
-  }
-
+@media screen and (max-width: 480px) {
   #nav-area {
     flex-direction: column;
+    padding-bottom: $spacing-small;
+
+    .site-title {
+      padding-bottom: $spacing-normal;
+    }
   }
 }

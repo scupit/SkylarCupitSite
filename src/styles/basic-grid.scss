@@ -4,6 +4,7 @@
 
 .card-block {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
   .card {
     @include slight-shadow;
@@ -47,18 +48,21 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 480px) {
   .card-block {
-    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    grid-template-columns: 100%;
 
     .card {
-      padding: $spacing-large;
-    }
-  }
-}
+      margin: $spacing-small;
+      grid-column: span 2 / auto;
 
-@media screen and (min-width: 1000px) {
-  .card-block {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      ul, ol {
+        line-height: 1.3em;
+      }
+    }
+
+    .title-card .page-title {
+      font-size: 2rem;
+    }
   }
 }
