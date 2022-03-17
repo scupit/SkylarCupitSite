@@ -1,26 +1,83 @@
 @import "styles/index.scss";
+@import "styles/palette.scss";
+@import "styles/mixins.scss";
+@import "styles/spacing.scss";
+
+@mixin icon-mask($url-string) {
+  mask-image: url($url-string);
+  mask-mode: alpha;
+  mask-position: center;
+  mask-repeat: repeat;
+  mask-size: cover;
+  background-color: white;
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+#content {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table#contacts-table {
+  a {
+    @include raised-hover;
+
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    padding: $spacing-small;
+  }
+}
+
+.github-icon {
+  @include icon-mask("/resources/github.svg");
+}
+
+.email-icon {
+  @include icon-mask("/resources/email.svg");
+}
+
+.phone-icon {
+  @include icon-mask("/resources/cellphone.svg");
+}
 
 .split-card {
+  flex: 1;
   display: grid;
-  grid-template-columns: repeat(2, 50%);
-
+  max-width: 100%;
+  grid-template-columns: repeat(5, 1fr);
   min-height: 50vh;
-  background-color: white;
-  padding: $spacing-normal;
 
   & > div {
-    grid-column: 1 / span 1;
-    // grid-row: 1 / span 1;
-    // background-color: blue;
+    color: white;
+    margin: $spacing-small;
+    border-radius: 5px;
+    background-color: $primary;
+    padding: $spacing-normal;
 
-    &:nth-child(3n) {
-      border-right: 5px solid black;
+    & > h1 {
+      display: block;
+      border-bottom: 2px solid white;
+      margin-bottom: $spacing-normal;
     }
-    &:nth-child(3n + 1) {
+
+    &:nth-child(2) {
+      background-color: $accent;
+      grid-column: auto / span 3;
     }
-    &:nth-child(3n + 2) {
-      grid-column: 1 / span 2;
-      border-top: 5px solid black;
+  }
+}
+
+@include small-screen-only {
+  .split-card {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    & > div:nth-child(2) {
+      grid-row: auto / span 2;
     }
   }
 }

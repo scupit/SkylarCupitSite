@@ -48,9 +48,9 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@include small-screen-only {
   .card-block {
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
 
     .card {
       margin: $spacing-small;

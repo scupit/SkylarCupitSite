@@ -4,7 +4,7 @@
 @import "styles/spacing.scss";
 
 body {
-  background-color: $bg-secondary;
+  background-color: $secondary;
   box-sizing: border-box;
   background-size: contain;
 }
@@ -35,40 +35,44 @@ ol, ul {
   );
 
   min-height: 3rem;
-  border-bottom: 2px solid white;
+  // border-bottom: 2px solid white;
+  border-bottom: 2px dashed white;
 
-  // #nav-links-container {
-  // }
+  #nav-links-container {
+    display: flex;
+    flex-wrap: wrap;
+    // flex-direction: column;
+    justify-content: space-around;
+    
+    @include small-screen-only {
+      margin-top: $spacing-small;
+      border-top: 4px double white;
+    }
+  }
 
   a {
+    @include raised-hover;
     color: white;
     position: relative;
     font-size: 1.3rem;
     text-decoration: none;
-    border-radius: 5px;
     padding: 5px;
     margin: 0 $spacing-small;
-    transition: none 0.12s ease-out;
-    transition-property: background-color, box-shadow;
-
-    &:hover {
-      @include slight-shadow;
-      background-color: darken($contact-box-color, 20%);
-    }
+    border-radius: 5px;
   }
 
   .site-title {
+    @include raised-hover;
     color: white;
-    background-color: unset;
     font-weight: bold;
     font-size: 1.7rem;
+    text-shadow: 3px 3px $accent;
   }
 }
 
 #content {
   padding: $spacing-normal;
 }
-
 
 @media screen and (max-width: 480px) {
   #nav-area {
