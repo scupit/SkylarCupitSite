@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TsConfigPathsWebpackPlugin = require('tsconfig-paths-webpack-plugin');
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const fs = require("fs");
 const path = require("path");
@@ -127,11 +126,6 @@ module.exports = {
       filename: isDevMode ? 'css/[name].css' : 'css/[name].[hash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[hash].css',
       ignoreOrder: false
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {from: "resources", to: "resources"}
-      ]
     })
   ]
 }
