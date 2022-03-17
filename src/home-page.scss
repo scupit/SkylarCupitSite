@@ -21,7 +21,11 @@
   align-items: center;
 }
 
-table#contacts-table {
+table {
+  td {
+    padding: $spacing-small 0;
+  }
+
   a {
     @include raised-hover;
 
@@ -48,7 +52,7 @@ table#contacts-table {
   flex: 1;
   display: grid;
   max-width: 100%;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   min-height: 50vh;
 
   & > div {
@@ -58,15 +62,70 @@ table#contacts-table {
     background-color: $primary;
     padding: $spacing-normal;
 
+    display: flex;
+    flex-direction: column;
+
+    & > div {
+      flex: 1;
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
     & > h1 {
       display: block;
       border-bottom: 2px solid white;
       margin-bottom: $spacing-normal;
     }
 
+
     &:nth-child(2) {
       background-color: $accent;
-      grid-column: auto / span 3;
+      grid-column: auto / span 2;
+    }
+
+    &:nth-child(3) {
+      & > div {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      table td {
+        padding: $spacing-normal;
+      }
+    }
+  }
+
+  .about-me-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  p {
+    font-size: large;
+    margin: 0;
+  }
+
+  .about-me-box .about-me-body {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+
+    & > div {
+      flex: 1;
+    }
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .split-card {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    & > div:nth-child(2) {
+      grid-row: auto / span 2;
     }
   }
 }
@@ -78,6 +137,10 @@ table#contacts-table {
 
     & > div:nth-child(2) {
       grid-row: auto / span 2;
+    }
+
+    .about-me-box .about-me-body {
+      flex-direction: column;
     }
   }
 }
