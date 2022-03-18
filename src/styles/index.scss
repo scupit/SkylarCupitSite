@@ -9,6 +9,13 @@ body {
   background-size: contain;
 }
 
+a {
+  @include raised-hover;
+  color: white;
+  background-color: inherit;
+  border-radius: 5px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
@@ -52,14 +59,11 @@ ol, ul {
   }
 
   a {
-    @include raised-hover;
-    color: white;
-    position: relative;
     font-size: 1.3rem;
-    text-decoration: none;
-    padding: 5px;
+    position: relative;
     margin: 0 $spacing-small;
-    border-radius: 5px;
+    text-decoration: none;
+    padding: $spacing-small;
   }
 
   .site-title {

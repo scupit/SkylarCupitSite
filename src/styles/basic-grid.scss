@@ -6,6 +6,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
+  @for $i from 0 through 20 {
+    .card:nth-child(#{$i}):not(.title-card) {
+      @include basic-fade-in($i)
+    }
+  }
+
   .card {
     @include slight-shadow;
 
@@ -29,9 +35,9 @@
   }
 
   .title-card {
+    @include basic-gradient-bg($contact-box-color);
     grid-column: 1 / -1;
     padding: $spacing-large;
-    @include basic-gradient-bg($contact-box-color);
 
     .page-title {
       color: white;

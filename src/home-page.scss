@@ -27,11 +27,7 @@ table {
   }
 
   a {
-    @include raised-hover;
-
-    color: white;
     font-size: 1.2rem;
-    border-radius: 5px;
     padding: $spacing-small;
   }
 }
@@ -80,6 +76,11 @@ table {
       margin-bottom: $spacing-normal;
     }
 
+    @for $i from 0 through 3 {
+      &:nth-child(#{$i}) {
+        @include basic-fade-in($i);
+      }
+    }
 
     &:nth-child(2) {
       background-color: $accent;
