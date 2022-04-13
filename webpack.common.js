@@ -79,7 +79,7 @@ module.exports = {
           // be globally reflected, restart Webpack's dev server. The idea is that partials are global
           // components, and shouldn't be modified too much if possible.
           options: {
-            sources: false,
+            sources: true,
             preprocessor: (content, loaderContext) => {
               try {
                 return Mustache.render(content, { }, resolvePartial);

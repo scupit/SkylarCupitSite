@@ -2,119 +2,139 @@
 @import "./palette.scss";
 @import "./spacing.scss";
 
-$card-split-nums: 3, 4;
+$card-split-nums: 1, 2, 3, 4;
 
 @each $n in $card-split-nums {
   .split-card-#{$n} {
-    flex: 1;
-    display: grid;
-    max-width: 100%;
-    min-height: 50vh;
+    @extend .private-split-card-base; 
 
     grid-template-columns: repeat($n, 1fr);
-
-    .card-block .card:not(.title-card) {
-      opacity: 1;
-      animation: none;
-    }
-
-    @include not-small-screen-only {
-      margin: $spacing-small;
-    }
 
     @media screen and (max-width: 840px) {
       grid-template-columns: repeat($n - 1, 1fr);
       // This grid-template-rows might not even be necessary. It just ensures the two left boxes have equal length.
       grid-template-rows: repeat($n - 2, 1fr);
+    }
+  }
+}
 
-      & > .big-card {
+.private-split-card-base {
+  flex: 1;
+  display: grid;
+  max-width: 100%;
+  min-height: 50vh;
+
+  & & {
+    min-height: unset;
+  }
+
+  .card-block .card:not(.title-card) {
+    opacity: 1;
+    animation: none;
+  }
+
+  @include not-small-screen-only {
+    margin: $spacing-small;
+  }
+
+  @media screen and (max-width: 840px) {
+    & > .big-card {
+      grid-row: auto / span 2;
+    }
+  }
+
+  @include small-screen-only {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: unset;
+  }
+
+  p {
+    font-size: large;
+    margin: 0;
+  }
+
+
+  & > div {
+    color: white;
+    margin: $spacing-small;
+    border-radius: 5px;
+    background-color: $primary;
+    padding: $spacing-normal;
+    display: block;
+
+    &.flexed-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &.flexed-row {
+      display: flex;
+      flex-direction: row;
+    }
+
+
+    & > h1:first-child, & > h2:first-child {
+      display: block;
+      border-bottom: 2px solid white;
+      margin-bottom: $spacing-normal;
+    }
+
+    @for $i from 0 through 20 {
+      &:nth-child(#{$i}) {
+        @include basic-slide-in($i);
+      }
+    }
+
+    &.big-card {
+      background-color: $accent;
+
+      @include not-small-screen-only {
+        grid-column: auto / span 2;
+      }
+
+      @include small-screen-only {
         grid-row: auto / span 2;
       }
     }
+  }
+
+  .contact-box {
+    flex: 1;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-me-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .about-me-box .about-me-body {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
 
     @include small-screen-only {
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: unset;
+      flex-direction: column;
     }
-
-    p {
-      font-size: large;
-      margin: 0;
-    }
-
 
     & > div {
-      color: white;
-      margin: $spacing-small;
-      border-radius: 5px;
-      background-color: $primary;
-      padding: $spacing-normal;
-
-      display: flex;
-      flex-direction: column;
-
-
-      & > h1, & > h2 {
-        display: block;
-        border-bottom: 2px solid white;
-        margin-bottom: $spacing-normal;
-      }
-
-      @for $i from 0 through 20 {
-        &:nth-child(#{$i}) {
-          @include basic-slide-in($i);
-        }
-      }
-
-      &.big-card {
-        background-color: $accent;
-
-        @include not-small-screen-only {
-          grid-column: auto / span 2;
-        }
-
-        @include small-screen-only {
-          grid-row: auto / span 2;
-        }
-      }
-    }
-
-    .contact-box {
       flex: 1;
-      display: flex;
-
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .about-me-box {
-      display: flex;
-      flex-direction: column;
-    }
-
-
-    .about-me-box .about-me-body {
-      display: flex;
-      flex: 1;
-      flex-direction: row;
-      align-items: center;
-
-      @include small-screen-only {
-        flex-direction: column;
-      }
-
-      & > div {
-        flex: 1;
-      }
     }
   }
 }
 
 .card-block {
   color: black;
+  // color: white;
   flex: 1;
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
   @for $i from 0 through 20 {
@@ -132,26 +152,65 @@ $card-split-nums: 3, 4;
     font-size: 1rem;
   }
 
+  &.image-container-root {
+    // align-items: flex-start;
+    // align-items: center;
+    align-items: flex-end;
+  }
+
   .card {
+    $radius-size: 10px;
     @include slight-shadow;
 
+    display: flex;
+    flex-direction: column;
+
     background-color: lighten($primary, 13%);
-    padding: $spacing-small;
-    border-radius: 10px;
+    border-radius: $radius-size;
     margin: $spacing-normal;
     min-height: 100px;
 
     h2:first-child, h3:first-child {
-      background-color: $primary;
-      border-radius: $spacing-small $spacing-small 0 0;
-      padding-left: $spacing-small;
-      padding-right: $spacing-small;
+      color: white;
+      @include basic-gradient-bg($primary, 10%);
+      border-radius: $radius-size $radius-size 0 0;
+      padding: $spacing-small;
       text-align: center;
+
+      &.contrast-bg {
+        @include basic-gradient-bg($contact-box-color);
+      }
+
+      &.dark-bg {
+        @include basic-gradient-bg($accent, 10%);
+      }
     }
 
     ul, ol {
       margin-top: $spacing-normal;
       margin-bottom: $spacing-normal;
+    }
+
+    .card-body {
+      padding: $spacing-normal;
+    }
+
+    .card-body-cramped {
+      padding: $spacing-small;
+    }
+
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0 0 10px 10px;
+      }
     }
   }
 
@@ -160,6 +219,10 @@ $card-split-nums: 3, 4;
     grid-column: 1 / -1;
     padding: $spacing-large;
     min-height: unset;
+
+    & > .white-title {
+      color: white;
+    }
 
     .page-title {
       color: white;
