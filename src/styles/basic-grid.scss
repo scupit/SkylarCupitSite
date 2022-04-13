@@ -2,14 +2,134 @@
 @import "./palette.scss";
 @import "./spacing.scss";
 
+$card-split-nums: 3, 4;
+
+@each $n in $card-split-nums {
+  .split-card-#{$n} {
+    flex: 1;
+    display: grid;
+    max-width: 100%;
+    min-height: 50vh;
+
+    grid-template-columns: repeat($n, 1fr);
+
+    .card-block .card:not(.title-card) {
+      opacity: 1;
+      animation: none;
+    }
+
+    @include not-small-screen-only {
+      margin: $spacing-small;
+    }
+
+    @media screen and (max-width: 840px) {
+      grid-template-columns: repeat($n - 1, 1fr);
+      // This grid-template-rows might not even be necessary. It just ensures the two left boxes have equal length.
+      grid-template-rows: repeat($n - 2, 1fr);
+
+      & > .big-card {
+        grid-row: auto / span 2;
+      }
+    }
+
+    @include small-screen-only {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: unset;
+    }
+
+    p {
+      font-size: large;
+      margin: 0;
+    }
+
+
+    & > div {
+      color: white;
+      margin: $spacing-small;
+      border-radius: 5px;
+      background-color: $primary;
+      padding: $spacing-normal;
+
+      display: flex;
+      flex-direction: column;
+
+
+      & > h1, & > h2 {
+        display: block;
+        border-bottom: 2px solid white;
+        margin-bottom: $spacing-normal;
+      }
+
+      @for $i from 0 through 20 {
+        &:nth-child(#{$i}) {
+          @include basic-slide-in($i);
+        }
+      }
+
+      &.big-card {
+        background-color: $accent;
+
+        @include not-small-screen-only {
+          grid-column: auto / span 2;
+        }
+
+        @include small-screen-only {
+          grid-row: auto / span 2;
+        }
+      }
+    }
+
+    .contact-box {
+      flex: 1;
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-me-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    .about-me-box .about-me-body {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      align-items: center;
+
+      @include small-screen-only {
+        flex-direction: column;
+      }
+
+      & > div {
+        flex: 1;
+      }
+    }
+  }
+}
+
 .card-block {
+  color: black;
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
   @for $i from 0 through 20 {
-    .card:nth-child(#{$i}):not(.title-card) {
-      @include basic-fade-in($i)
+    .card:nth-child(#{$i}) {
+      @include basic-slide-in($i);
+
+      &.title-card {
+        animation: none;
+        opacity: 1;
+      }
     }
+  }
+
+  p {
+    font-size: 1rem;
   }
 
   .card {
@@ -19,8 +139,9 @@
     padding: $spacing-small;
     border-radius: 10px;
     margin: $spacing-normal;
+    min-height: 100px;
 
-    h3:first-child {
+    h2:first-child, h3:first-child {
       background-color: $primary;
       border-radius: $spacing-small $spacing-small 0 0;
       padding-left: $spacing-small;
@@ -38,6 +159,7 @@
     @include basic-gradient-bg($contact-box-color);
     grid-column: 1 / -1;
     padding: $spacing-large;
+    min-height: unset;
 
     .page-title {
       color: white;

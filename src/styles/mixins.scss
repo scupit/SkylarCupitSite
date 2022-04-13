@@ -21,7 +21,7 @@
   }
 }
 
-@keyframes fade-in-anim {
+@keyframes slide-fade-in-anim {
   from {
     top: 50px;
     opacity: 0;
@@ -33,15 +33,21 @@
   }
 }
 
-@mixin basic-fade-in($delay-component-num) {
+@mixin basic-slide-in($delay-component-num) {
   opacity: 0;
   position: relative;
-  animation: fade-in-anim 0.3s ease-in (30ms * $delay-component-num);
+  animation: slide-fade-in-anim 0.3s ease-in (30ms * $delay-component-num);
   animation-fill-mode: forwards;
 }
 
 @mixin small-screen-only {
   @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin not-small-screen-only {
+  @media screen and (min-width: 480px) {
     @content;
   }
 }
