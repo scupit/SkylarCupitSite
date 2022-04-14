@@ -33,7 +33,7 @@ $card-split-nums: 1, 2, 3, 4;
     animation: none;
   }
 
-  @include not-small-screen-only {
+  @include large-screen-only {
     margin: $spacing-small;
   }
 
@@ -53,7 +53,6 @@ $card-split-nums: 1, 2, 3, 4;
     margin: 0;
   }
 
-
   & > div {
     color: white;
     margin: $spacing-small;
@@ -72,8 +71,24 @@ $card-split-nums: 1, 2, 3, 4;
       flex-direction: row;
     }
 
+    & > .title-area {
+      @include basic-gradient-bg($contact-box-color);
+      // background-color: $primary;
+    }
 
-    & > h1:first-child, & > h2:first-child {
+    & > .title-area,
+    &.big-card > .title-area
+    {
+      margin-top: -$spacing-normal;
+      padding: $spacing-normal;
+      border-radius: 10px;
+    }
+
+    & > h1:first-child,
+    & > h2:first-child,
+    .title-area > h1:first-child,
+    .title-area > h2:first-child
+    {
       display: block;
       border-bottom: 2px solid white;
       margin-bottom: $spacing-normal;
@@ -88,13 +103,29 @@ $card-split-nums: 1, 2, 3, 4;
     &.big-card {
       background-color: $accent;
 
-      @include not-small-screen-only {
+      @include large-screen-only {
+        grid-column: auto / span 2;
+      }
+
+      @include medium-screen-only {
         grid-column: auto / span 2;
       }
 
       @include small-screen-only {
         grid-row: auto / span 2;
       }
+    }
+
+    & > .title-area {
+      & > h1:first-child, & > h2:first-child {
+        display: block;
+        border-bottom: 2px solid white;
+        margin-bottom: $spacing-normal;
+      }
+    }
+
+    &.no-bg {
+      background: none;
     }
   }
 
@@ -153,13 +184,12 @@ $card-split-nums: 1, 2, 3, 4;
   }
 
   &.image-container-root {
-    // align-items: flex-start;
-    // align-items: center;
-    align-items: flex-end;
+    align-items: center;
   }
 
   .card {
     $radius-size: 10px;
+
     @include slight-shadow;
 
     display: flex;
@@ -172,17 +202,17 @@ $card-split-nums: 1, 2, 3, 4;
 
     h2:first-child, h3:first-child {
       color: white;
-      @include basic-gradient-bg($primary, 10%);
+      background-color: $primary;
       border-radius: $radius-size $radius-size 0 0;
       padding: $spacing-small;
       text-align: center;
 
       &.contrast-bg {
-        @include basic-gradient-bg($contact-box-color);
+        background-color: darken($contact-box-color, 10%);
       }
 
       &.dark-bg {
-        @include basic-gradient-bg($accent, 10%);
+        background-color: $accent;
       }
     }
 
@@ -255,5 +285,62 @@ $card-split-nums: 1, 2, 3, 4;
     .title-card .page-title {
       font-size: 2rem;
     }
+  }
+}
+
+// .col-sm-2
+
+@for $i from 1 to 4 {
+  $size-map: (
+    "sm": "small",
+    "md": "medium",
+    "lg": "large"
+  );
+
+  @each $size-name, $prefix-name in $size-map {
+    .col-#{$size-name}-#{$i} {
+      $col-span: auto / span $i;
+
+      // This is annoying... but SCSS doesn't accept interpolation in variable names
+      // yet. Refactor this when that's possible.
+      @if $size-name == "sm" {
+        @include small-screen-only {
+          grid-column: $col-span;
+        }
+      }
+      @else if $size-name == "md" {
+        @include medium-screen-only {
+          grid-column: $col-span;
+        }
+      }
+      @else if $size-name == "lg" {
+        @include large-screen-only {
+          grid-column: $col-span;
+        }
+      }
+    }
+
+    .row-#{$size-name}-#{$i} {
+      $row-span: auto / span $i;
+
+      // This is annoying... but SCSS doesn't accept interpolation in variable names
+      // yet. Refactor this when that's possible.
+      @if $size-name == "sm" {
+        @include small-screen-only {
+          grid-row: $row-span;
+        }
+      }
+      @else if $size-name == "md" {
+        @include medium-screen-only {
+          grid-row: $row-span;
+        }
+      }
+      @else if $size-name == "lg" {
+        @include large-screen-only {
+          grid-row: $row-span;
+        }
+      }
+    }
+
   }
 }
