@@ -1,6 +1,6 @@
 # Skylar Cupit Site
 
-My personal website.
+My personal website. See the finished product at [skylarcupit.com](https://skylarcupit.com/).
 
 ## Before building
 
