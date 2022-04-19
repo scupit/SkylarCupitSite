@@ -3,18 +3,6 @@
 @import "styles/mixins.scss";
 @import "styles/spacing.scss";
 
-@mixin icon-mask($url-string) {
-  mask-image: url($url-string);
-  mask-mode: alpha;
-  mask-position: center;
-  mask-repeat: repeat;
-  mask-size: cover;
-  background-color: white;
-  display: block;
-  width: 1em;
-  height: 1em;
-}
-
 #content {
   flex-direction: column;
   justify-content: center;
@@ -30,16 +18,4 @@ table {
     font-size: 1.2rem;
     padding: $spacing-small;
   }
-}
-
-.github-icon {
-  @include icon-mask("/resources/github.svg");
-}
-
-.email-icon {
-  @include icon-mask("/resources/email.svg");
-}
-
-.phone-icon {
-  @include icon-mask("/resources/cellphone.svg");
 }

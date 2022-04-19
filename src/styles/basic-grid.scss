@@ -71,15 +71,16 @@ $card-split-nums: 1, 2, 3, 4;
       flex-direction: row;
     }
 
-    & > .title-area {
-      @include basic-gradient-bg($contact-box-color);
-      // background-color: $primary;
-    }
-
     & > .title-area,
     &.big-card > .title-area
     {
+      @include slight-shadow;
+      // @include basic-gradient-bg($contact-box-color);
+      // background-color: $accent;
+      background-color: $primary;
       margin-top: -$spacing-normal;
+      margin-left: -$spacing-normal;
+      margin-right: -$spacing-normal;
       padding: $spacing-normal;
       border-radius: 10px;
     }
@@ -198,12 +199,21 @@ $card-split-nums: 1, 2, 3, 4;
     background-color: lighten($primary, 13%);
     border-radius: $radius-size;
     margin: $spacing-normal;
-    min-height: 100px;
+    min-height: 150px;
+    padding: $spacing-small;
 
-    h2:first-child, h3:first-child {
+    &.no-outer-pad {
+      padding: 0;
+    }
+
+    & > h2:first-child,
+    & > h3:first-child
+    {
+      $inner-radius-size: 7.5px;
       color: white;
       background-color: $primary;
-      border-radius: $radius-size $radius-size 0 0;
+      // border-radius: $radius-size $radius-size 0 0;
+      border-radius: $inner-radius-size $inner-radius-size 0 0;
       padding: $spacing-small;
       text-align: center;
 

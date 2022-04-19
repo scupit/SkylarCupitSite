@@ -7,10 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve --open --config ./webpack.dev.js --mode development",
     "build": "webpack --config ./webpack.dev.js --mode development",
-    "prod": "webpack --config ./webpack.prod.js --mode production",
-    "confighooks": "run-script-os",
-    "confighooks:win32": "del /Q .git\\hooks\\* && xcopy /s hooks\\* .git\\hooks",
-    "confighooks:default": "rm -q .git/hooks.* && cp hooks/* .git/hooks"
+    "prod": "webpack --config ./webpack.prod.js --mode production"
   },
   "author": "",
   "license": "ISC",
@@ -31,7 +28,6 @@
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.5.2",
     "mustache": "^4.2.0",
-    "run-script-os": "^1.1.6",
     "sass": "^1.50.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",

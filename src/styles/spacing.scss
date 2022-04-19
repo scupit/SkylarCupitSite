@@ -2,3 +2,11 @@
   $spacing-large: 20px;
   $spacing-normal: 10px;
   $spacing-small: 5px;
+
+
+.vertically-spaced {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+}

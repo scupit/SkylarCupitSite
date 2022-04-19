@@ -12,7 +12,7 @@ body {
 a {
   @include raised-hover;
   color: white;
-  background-color: inherit;
+  background: inherit;
   border-radius: 5px;
 }
 
@@ -58,6 +58,10 @@ ol, ul {
       margin-top: $spacing-small;
       border-top: 4px double white;
     }
+
+    a {
+      color: white;
+    }
   }
 
   a {
@@ -91,3 +95,26 @@ ol, ul {
     }
   }
 }
+
+@mixin make-icon-classes($icon-file, $icon-name) {
+  $icon-color-map: (
+    "white": white,
+    "black": black,
+    "colored": $accent
+  );
+
+  @each $color-suffix, $color in $icon-color-map {
+    .#{$icon-name}-icon-#{$color-suffix} {
+      @include text-icon-mask($icon-file, $color);
+    }
+
+    .#{$icon-name}-icon {
+      @extend .#{$icon-name}-icon-white;
+    }
+  }
+}
+
+@include make-icon-classes("/resources/github.svg", "github");
+@include make-icon-classes("/resources/email.svg", "email");
+@include make-icon-classes("/resources/cellphone.svg", "phone");
+@include make-icon-classes("/resources/link-variant.svg", "hyperlink");
