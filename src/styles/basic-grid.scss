@@ -9,6 +9,8 @@ $card-split-nums: 1, 2, 3, 4;
     @extend .private-split-card-base; 
 
     grid-template-columns: repeat($n, 1fr);
+    gap: $spacing-normal;
+    // gap: $spacing-large;
 
     @media screen and (max-width: 840px) {
       grid-template-columns: repeat($n - 1, 1fr);
@@ -55,7 +57,6 @@ $card-split-nums: 1, 2, 3, 4;
 
   & > div {
     color: white;
-    margin: $spacing-small;
     border-radius: 5px;
     background-color: $primary;
     padding: $spacing-normal;
@@ -78,9 +79,7 @@ $card-split-nums: 1, 2, 3, 4;
       // @include basic-gradient-bg($contact-box-color);
       // background-color: $accent;
       background-color: $primary;
-      margin-top: -$spacing-normal;
-      margin-left: -$spacing-normal;
-      margin-right: -$spacing-normal;
+      margin-bottom: $spacing-normal;
       padding: $spacing-normal;
       border-radius: 10px;
     }
@@ -127,6 +126,7 @@ $card-split-nums: 1, 2, 3, 4;
 
     &.no-bg {
       background: none;
+      padding: 0;
     }
   }
 
@@ -167,6 +167,12 @@ $card-split-nums: 1, 2, 3, 4;
   flex: 1;
   display: grid;
 
+  gap: $spacing-large;
+
+  @include small-screen-only {
+    gap: $spacing-small;
+  }
+
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
   @for $i from 0 through 20 {
@@ -185,7 +191,8 @@ $card-split-nums: 1, 2, 3, 4;
   }
 
   &.image-container-root {
-    align-items: center;
+    // align-items: center;
+    align-items: flex-end;
   }
 
   .card {
@@ -198,7 +205,6 @@ $card-split-nums: 1, 2, 3, 4;
 
     background-color: lighten($primary, 13%);
     border-radius: $radius-size;
-    margin: $spacing-normal;
     min-height: 150px;
     padding: $spacing-small;
 
@@ -249,8 +255,12 @@ $card-split-nums: 1, 2, 3, 4;
       img {
         max-width: 100%;
         max-height: 100%;
-        border-radius: 0 0 10px 10px;
+        border-radius: 10px;
       }
+    }
+
+    .contrast-bg + .image-container > img {
+      border-radius: 0 0 10px 10px;
     }
   }
 

@@ -82,7 +82,11 @@ ol, ul {
 }
 
 #content {
-  padding: $spacing-normal;
+  padding: $spacing-large;
+
+  @include small-screen-only {
+    padding: $spacing-normal;
+  }
 }
 
 @media screen and (max-width: 480px) {
