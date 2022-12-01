@@ -1,2 +1,11 @@
-node_modules/
+.vscode/
+.yarn/
+
 dist/
+node_modules/
+
+.pnp.cjs
+.pnp.loader.mjs
+
+my_site.tar
+my_site.tar.gz

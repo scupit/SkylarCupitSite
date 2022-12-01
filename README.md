@@ -2,16 +2,28 @@
 
 My personal website. See the finished product at [skylarcupit.com](https://skylarcupit.com/).
 
-## Before building
+## Requirements
 
-Run `npm install` to install all needed dependencies.
+- [Yarn](https://yarnpkg.com/getting-started/install), ideally Yarn 3 or higher.
+- [7Zip](https://www.7-zip.org/) is only required when running the site packager scripts.
 
-## Running and Packaging
+## Initial Setup
 
-> NOTE: Packaging this site with the provided scripts requires [7Zip](https://www.7-zip.org/) and *npm* to be
-> installed and available on the system PATH.
+1. `git clone git@github.com:scupit/SkylarCupitSite.git`
+2. `cd SkylarCupitSite`
+3. Run `yarn install` to install all needed dependencies.
+4. Run the correct [editor setup command](https://yarnpkg.com/getting-started/editor-sdks). For VSCode, `yarn sdks vscode` is what you want.
 
-`npm run dev` starts a local dev server on port 3000.
+## Build and Run
 
-`./package-site.sh` or `./package-site.ps1` will make a production build of the site, then package
-the output *dist* directory into *my_site.tar.gz*. Make sure to run scripts from the project root.
+`yarn run dev` starts a local dev server on port 3000.
+
+## Production Build
+
+1. Make sure both [7Zip](https://www.7-zip.org/) and [Yarn](https://yarnpkg.com/getting-started/install)
+  are available.
+2. **With the project root as the current working directory**, run `./package-site.ps1`
+  (Windows + PowerShell) or `./package-site.sh` (everywhere else).
+
+Upon success, the final build will be in the *dist/* directory, and will be compressed into
+*my_site.tar.gz* in the project root.
