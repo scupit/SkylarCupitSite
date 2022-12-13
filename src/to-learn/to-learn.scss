@@ -1,2 +1,6 @@
 @import "styles/index.scss";
 @import "styles/basic-grid.scss";
+
+.card a {
+  color: revert;
+}

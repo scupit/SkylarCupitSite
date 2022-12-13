@@ -3,7 +3,7 @@
 
 <head>
   {{> partials/shared-metadata }}
-  <title>Things to learn</title>
+  <title>Knowledge Base</title>
 </head>
 
 <body>
@@ -12,32 +12,40 @@
   <div id="content">
     <div class="card-block">
       <div class="card title-card">
+        <h1 class="page-title">Resources</h1>
+        <h3 class="white-title">General programming resources I've found over time (TODO)</h3>
+      </div>
+      <div class="card">
+        <h3>Documentation</h3>
+        <ul>
+          <li><a href="https://devdocs.io/">DevDocs</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></li>
+          <li><a href="https://en.cppreference.com/w/">cppreference</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-block">
+      <div class="card title-card">
         <h1 class="page-title">Learning Board</h1>
+        <h3 class="white-title">Things I want to learn or am currently learning</h3>
       </div>
       <div class="card card-tall">
         <h3>Languages</h3>
         <ul>
           <li>C 👉</li>
           <li>C++ 👉</li>
-          <li>TypeScript ✅</li>
+          <li><a href="https://www.typescriptlang.org/">TypeScript</a> ✅</li>
           <li>JavaScript ✅</li>
-          <li>Python ✅</li>
-          <li>Kotlin ✅</li>
-          <li>Rust 👉</li>
+          <li><a href="https://www.python.org/">Python</a> ✅</li>
+          <li><a href="https://kotlinlang.org/">Kotlin</a> ✅</li>
+          <li><a href="https://www.rust-lang.org/">Rust</a> 👉</li>
           <li>Haskell 👉</li>
-          <li>Scala 3</li>
-          <li>Nim</li>
-          <li>Zig</li>
+          <li><a href="https://www.scala-lang.org/">Scala 3</a></li>
+          <li><a href="https://nim-lang.org/">Nim</a></li>
+          <li><a href="https://ziglang.org/">Zig</a></li>
           <li>Swift</li>
           <li>SQL 👉</li>
           <li>GLSL 👉</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Modified Languages</h3>
-        <ul>
-          <li>Circle C++</li>
-          <li>cython</li>
         </ul>
       </div>
       <div class="card">
@@ -50,25 +58,26 @@
           <li>Mustache 👉</li>
         </ul>
       </div>
-      <div class="card">
-        <h3>C/C++ Compilers</h3>
-        <ul>
-          <li>GCC (+ MinGW-w64) 👉</li>
-          <li>Clang 👉</li>
-          <li>MSVC 👉</li>
-        </ul>
-      </div>
-
       <div class="card card-long">
         <h3>Build tools</h3>
         <ul>
-          <li>Gradle 👉</li>
-          <li>Ninja ✅</li>
-          <li>NPM 👉</li>
-          <li>Yarn</li>
-          <li>Webpack 👉</li>
-          <li>CMake 👉</li>
-          <li>Docker (file and compose) 👉</li>
+          <li><a href="https://gradle.org/">Gradle</a> 👉</li>
+          <li><a href="https://ninja-build.org/">Ninja</a> ✅</li>
+          <li><a href="https://www.npmjs.com/">npm</a> 👉</li>
+          <li><a href="https://yarnpkg.com/">Yarn</a> 👉</li>
+          <li><a href="https://webpack.js.org/">Webpack</a> 👉</li>
+          <li><a href="https://cmake.org/">CMake</a> ✅</li>
+          <li><a href="https://www.docker.com/">Docker</a> (file and compose) 👉</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>General Topics</h3>
+        <ul>
+          <li><a href="https://webassembly.org/">Web Assembly</a> 👉</li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps">Progressive Web Apps</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web Workers</a></li>
+          <li>NFC Touch</li>
         </ul>
       </div>
 
@@ -76,35 +85,36 @@
         <h3>Misc. Configurables</h3>
         <ul>
           <li>Regex ✅</li>
-          <li>Latex (lualatex + xelatex)</li>
-          <li>Jupyter Notebook</li>
-          <li>Web Assembly</li>
-          <li>Progressive Web Apps</li>
-          <li>Web Workers</li>
+          <li><a href="https://www.latex-project.org/">Latex</a> from <a href="https://www.tug.org/texlive/">TexLive</a></li>
+          <li><a href="https://jupyter.org/">Jupyter Notebook</a></li>
         </ul>
       </div>
 
       <div class="card card-tall">
         <h3>Frameworks and Libraries</h3>
         <ul>
-          <li>React ✅</li>
-          <li>React Native ✅</li>
-          <li>Angular 👉</li>
-          <li>Vue 👉</li>
-          <li>Svelte</li>
-          <li>OpenGL 👉</li>
-          <li>Spring Boot 👉</li>
-          <li>Jetpack Compose</li>
-          <li>SDL</li>
-          <li>SFML 👉</li>
-          <li>WxWidgets (and WxPython)</li>
-          <li>Tkinter python</li>
-          <li>ImGUI (and DearPyGui)</li>
-          <li>WebGL (probably through ThreeJS)</li>
-          <li>NCurses</li>
-          <li>zlib</li>
-          <li>GLFW 👉</li>
-          <li>GLM 👉</li>
+          <li><a href="https://reactjs.org/">React</a> ✅</li>
+          <li><a href="https://reactnative.dev/">React Native</a> ✅</li>
+          <li><a href="https://angular.io/">Angular</a> 👉</li>
+          <li><a href="https://vuejs.org/">Vue</a> 👉</li>
+          <li><a href="https://svelte.dev/">Svelte</a></li>
+          <li><a href="https://www.opengl.org/">OpenGL</a> 👉</li>
+          <li><a href="https://spring.io/projects/spring-boot">Spring Boot</a> 👉</li>
+          <li><a href="https://developer.android.com/jetpack/compose">Jetpack Compose</a></li>
+          <li><a href="https://www.libsdl.org/">SDL</a></li>
+          <li><a href="https://www.sfml-dev.org/">SFML</a> 👉</li>
+          <li><a href="https://www.wxwidgets.org/">WxWidgets</a></li>
+          <li><a href="https://github.com/ocornut/imgui">ImGUI</a></li>
+          <li><a href="https://www.khronos.org/webgl/">WebGL</a>, mainly with <a href="https://threejs.org/">ThreeJS</a></li>
+          <li>
+            Compression libraries like:
+            <ul>
+              <li><a href="https://zlib.net/">zlib</a></li>
+              <li><a href="https://github.com/google/brotli">Brotli</a></li>
+              <li><a href="https://github.com/facebook/zstd">zstd</a></li>
+            </ul>
+          </li>
+          <li><a href="https://www.glfw.org/">GLFW</a> 👉</li>
         </ul>
       </div>
 
@@ -122,80 +132,83 @@
       <div class="card">
         <h3>Runtimes</h3>
         <ul>
-          <li>NodeJS ✅</li>
-          <li>Deno JS 👉</li>
-          <li>OpenJDK ✅</li>
+          <li><a href="https://nodejs.org/en/">NodeJS</a> ✅</li>
+          <li><a href="https://deno.land/">DenoJS</a> 👉</li>
+          <li><a href="https://openjdk.org/">OpenJDK</a> ✅</li>
         </ul>
       </div>
 
       <div class="card card-tall">
-        <h3>GUI Software</h3>
+        <h3>General User Software</h3>
         <ul>
-          <li>Android Studio</li>
-          <li>XCode</li>
-          <li>Visual Studio Code ✅</li>
-          <li>Vim ✅</li>
-          <li>Blender</li>
-          <li>Photoshop</li>
-          <li>Premiere (or good video editing)</li>
-          <li>InkScape</li>
-          <li>ProCreate</li>
-          <li>Unreal Engine</li>
-          <li>Godot Engine</li>
-          <li>FileZilla 👉</li>
-          <li>Postman 👉</li>
+          <li><a href="https://developer.android.com/studio">Android Studio</a></li>
+          <li><a href="https://code.visualstudio.com/">Visual Studio Code</a> ✅</li>
+          <li><a href="https://neovim.io/">Neovim</a></li>
+          <li><a href="https://www.blender.org/">Blender</a></li>
+          <li><a href="https://www.adobe.com/products/photoshop.html">Adobe Photoshop</a></li>
+          <li><a href="https://www.adobe.com/products/premiere.html">Adobe Premiere Pro</a></li>
+          <li><a href="https://www.adobe.com/products/aftereffects.html">Adobe After Effects</a></li>
+          <li><a href="https://www.blackmagicdesign.com/products/davinciresolve">DaVinci Resolve</a></li>
+          <li><a href="https://inkscape.org/">InkScape</a></li>
+          <li><a href="https://www.unrealengine.com/en-US">Unreal Engine</a></li>
+          <li><a href="https://godotengine.org/">Godot Engine</a></li>
+          <li><a href="https://filezilla-project.org/">FileZilla</a> 👉</li>
+          <li><a href="https://www.postman.com/">Postman</a> 👉</li>
+          <li><a href="https://openhardwaremonitor.org/">Open Hardware Monitor</a></li>
+          <li><a href="https://rufus.ie/en/">Rufus</a></li>
+          <li><a href="https://getsharex.com/">ShareX</a></li>
+          <li><a href="https://www.videolan.org/">VLC Media Player</a></li>
+          <li><a href="https://obsproject.com/">OBS Studio</a></li>
+          <li><a href="https://www.voidtools.com/">Voidtools Everything</a> search</li>
+          <li><a href="https://windirstat.net/">WinDirStat</a></li>
         </ul>
       </div>
 
       <div class="card card-tall">
         <h3>Command Line Tools</h3>
         <ul>
-          <li>cURL</li>
+          <li><a href="https://curl.se/">curl</a></li>
           <li>wget</li>
-          <li>Git ✅</li>
-          <li>SSH 👉</li>
-          <li>SFTP 👉</li>
-          <li>RSync 👉</li>
-          <li>robocopy 👉</li>
-          <li>pandoc 👉</li>
-          <li>7Zip 👉</li>
-          <li>TMUX 👉</li>
-          <li>ffmpeg 👉</li>
-          <li>UPX 👉</li>
+          <li><a href="https://git-scm.com/">git</a> ✅</li>
+          <li>ssh 👉</li>
+          <li>sftp 👉</li>
+          <li><a href="https://linux.die.net/man/1/rsync">rsync</a> 👉</li>
+          <li><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy">robocopy</a> 👉</li>
+          <li><a href="https://pandoc.org/">pandoc</a> 👉</li>
+          <li><a href="https://www.7-zip.org/">7Zip</a> ✅</li>
+          <li><a href="https://github.com/tmux/tmux">tmux</a> 👉</li>
+          <li><a href="https://ffmpeg.org/">ffmpeg</a> 👉</li>
+          <li><a href="https://upx.github.io/">upx</a> 👉</li>
+          <li><a href="https://imagemagick.org/">imagemagick</a></li>
+          <li><a href="https://github.com/sharkdp/fd">fd</a> <code>find</code> alternative</li>
+          <li><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a> <code>grep</code> alternative</li>
+          <li><a href="https://github.com/junegunn/fzf">fzf</a> fuzzy finder</li>
         </ul>
       </div>
       <div class="card">
         <h3>Shells</h3>
         <ul>
-          <li>Bash 👉</li>
-          <li>Powershell 👉</li>
-          <li>ZSH</li>
+          <li><a href="https://www.gnu.org/software/bash/">Bash</a> 👉</li>
+          <li><a href="https://github.com/PowerShell/PowerShell">PowerShell</a> 👉</li>
+          <li><a href="https://www.zsh.org/">zsh</a></li>
         </ul>
       </div>
       
       <div class="card">
-        <h3>Web Tools</h3>
+        <h3>Misc. Tools</h3>
         <ul>
-          <li>GitHub (remote Git repos) ✅</li>
-          <li>Docker Hub (remote registries)</li>
-          <li>Jenkins</li>
+          <li><a href="https://github.com/">GitHub</a> (remote Git repos) ✅</li>
+          <li><a href="https://hub.docker.com/">Docker Hub</a> + <a href="https://docs.docker.com/registry/">remote registries</a></li>
+          <li><a href="https://www.jenkins.io/">Jenkins</a></li>
         </ul>
       </div>
 
-      
       <div class="card">
-        <h3>Non-GUI Software</h3>
+        <h3>Configurable Non-GUI Software</h3>
         <ul>
-          <li>Apache 2 (web server) 👉</li>
-          <li>CUPS (print server/protocol) 👉</li>
-          <li>Samba (SMB file sharing) 👉</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Misc. others</h3>
-        <ul>
-          <li>NFC touch</li>
-          <li>My own site (Skylarcupit.com) 👉</li>
+          <li><a href="https://httpd.apache.org/">Apache 2</a> HTTP server👉</li>
+          <li><a href="http://www.cups.org/">CUPS</a> print server/protocol 👉</li>
+          <li><a href="https://www.samba.org/">Samba</a> (SMB file sharing) 👉</li>
         </ul>
       </div>
     </div>
