@@ -12,11 +12,10 @@ My personal website. See the finished product at [skylarcupit.com](https://skyla
 1. `git clone git@github.com:scupit/SkylarCupitSite.git`
 2. `cd SkylarCupitSite`
 3. Run `yarn install` to install all needed dependencies.
-4. Run `yarn plugin import typescript` to ensure *@types/\** packages are manages automatically.
-5. Run the correct [editor setup command](https://yarnpkg.com/getting-started/editor-sdks). For VSCode, `yarn sdks vscode` is what you want.
-6. Do the setup steps for the *resume/* submodule as described in the [resume module README](./resume/README.md)
+4. Run the correct [editor setup command](https://yarnpkg.com/getting-started/editor-sdks). For VSCode, `yarn sdks vscode` is what you want.
+5. Do the setup steps for the *resume/* submodule as described in the [resume module README](./resume/README.md)
 
-> **NOTE:** Steps 3 through 6 can also be done by running the `initial-vscode-setup.{ps1|sh}` convenience script.
+> **NOTE:** Steps 3 through 5 can also be done by running the `initial-vscode-setup.{ps1|sh}` convenience script.
 
 ## Build and Run
 
