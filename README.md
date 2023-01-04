@@ -30,3 +30,18 @@ My personal website. See the finished product at [skylarcupit.com](https://skyla
 
 Upon success, the final build will be in the *dist/* directory, and will be compressed into
 *my_site.tar.gz* in the project root.
+
+## Reducing Image Size
+
+I downscale images using [imagemagick](https://imagemagick.org/) before adding them to the
+*resources/* folder. This script is just for reference:
+
+``` bash
+# NOTE that to convert 'heif' format files (including HEIC and heic), you must first build
+# imagemagick from source with HEIC support enabled.
+for file in *.{HEIC,heic,JPG}; do
+  magick convert "$file" -resize '30%' "${file%.*}.webp"
+done
+```
+
+The range between 15% and 30% seems to be an ideal middle ground between resolution and file size.

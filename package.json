@@ -1,7 +1,8 @@
 {
-  "name": "web-base-project",
+  "name": "skylar-cupit-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "My personal website",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +10,7 @@
     "build": "webpack --config ./webpack.dev.js --mode development",
     "prod": "webpack --config ./webpack.prod.js --mode production"
   },
-  "author": "",
+  "author": "Skylar Cupit",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.20.5",
