@@ -11,8 +11,8 @@ body {
 
 a {
   @include raised-hover;
+  position: relative;
   color: white;
-  background: inherit;
   border-radius: 5px;
 }
 

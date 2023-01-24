@@ -31,13 +31,29 @@
 }
 
 @mixin raised-hover {
-  transition:
-    background-color 0.12s ease-out,
-    box-shadow 0.12s ease-out;
+  $transition-details: 0.12s ease-out;
 
-  &:hover {
-    @include slight-shadow;
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 100%;
+
+    transition:
+      width $transition-details,
+      box-shadow $transition-details;
+
     background-color: $contact-box-color;
+    border-radius: $spacing-small;
+  }
+
+  &:hover::before {
+    @include slight-shadow;
+    width: 100%;
   }
 }
 
