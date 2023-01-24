@@ -1,5 +1,15 @@
 @import "styles/index.scss";
 
+table {
+  td {
+    display: inline-block;
+  }
+
+  a {
+    padding: $spacing-small;
+  }
+}
+
 .image-container-root {
   display: flex;
   grid-column: 1 / -1;
