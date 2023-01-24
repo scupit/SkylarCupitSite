@@ -58,7 +58,7 @@ $card-split-nums: 1, 2, 3, 4;
   & > div {
     color: white;
     border-radius: 5px;
-    background-color: $primary;
+    background-color: var(--primary);
     padding: $spacing-normal;
     display: block;
 
@@ -76,9 +76,9 @@ $card-split-nums: 1, 2, 3, 4;
     &.big-card > .title-area
     {
       @include slight-shadow;
-      // @include basic-gradient-bg($contact-box-color);
-      // background-color: $accent;
-      background-color: $primary;
+      // @include basic-gradient-bg(var(--contact-box-color));
+      // background-color: var(--accent);
+      background-color: var(--primary);
       margin-bottom: $spacing-normal;
       padding: $spacing-normal;
       border-radius: 10px;
@@ -101,7 +101,7 @@ $card-split-nums: 1, 2, 3, 4;
     }
 
     &.big-card {
-      background-color: $accent;
+      background-color: var(--accent);
 
       @include large-screen-only {
         grid-column: auto / span 2;
@@ -202,7 +202,7 @@ $card-split-nums: 1, 2, 3, 4;
     display: flex;
     flex-direction: column;
 
-    background-color: lighten($primary, 13%);
+    background-color: var(--card-bg);
     border-radius: $radius-size;
     min-height: 150px;
     padding: $spacing-small;
@@ -216,18 +216,18 @@ $card-split-nums: 1, 2, 3, 4;
     {
       $inner-radius-size: 7.5px;
       color: white;
-      background-color: $primary;
+      background-color: var(--primary);
       // border-radius: $radius-size $radius-size 0 0;
       border-radius: $inner-radius-size $inner-radius-size 0 0;
       padding: $spacing-small;
       text-align: center;
 
       &.contrast-bg {
-        background-color: darken($contact-box-color, 10%);
+        background-color: var(--contrast-bg);
       }
 
       &.dark-bg {
-        background-color: $accent;
+        background-color: var(--accent);
       }
     }
 
@@ -311,7 +311,12 @@ $card-split-nums: 1, 2, 3, 4;
   }
 
   .title-card {
-    @include basic-gradient-bg($contact-box-color);
+    background: linear-gradient(
+      to right,
+      var(--contrast-bg-dark),
+      var(--contact-box-color)
+    );
+
     grid-column: 1 / -1;
     padding: $spacing-large;
     min-height: unset;

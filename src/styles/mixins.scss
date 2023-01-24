@@ -47,7 +47,7 @@
       width $transition-details,
       box-shadow $transition-details;
 
-    background-color: $contact-box-color;
+    background-color: var(--contact-box-color);
     border-radius: $spacing-small;
   }
 

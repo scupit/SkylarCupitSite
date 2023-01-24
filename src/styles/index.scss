@@ -4,7 +4,7 @@
 @import "styles/spacing.scss";
 
 body {
-  background-color: $secondary;
+  background-color: var(--secondary);
   box-sizing: border-box;
   background-size: contain;
 }
@@ -38,16 +38,16 @@ ol, ul {
   width: 100%;
   background: linear-gradient(
     45deg,
-    $darkest-accent 0 20%,
-    $dark-accent 20% 30%,
-    $accent 30% 40%,
-    $primary 40% 50%
+    var(--darkest-accent) 0 20%,
+    var(--dark-accent) 20% 30%,
+    var(--accent) 30% 40%,
+    var(--primary) 40% 50%
   );
 
   min-height: 3rem;
-  border-bottom: 2px solid $primary;
-  border-top: 2px solid $primary;
-  // border: 2px solid $primary;
+  border-bottom: 2px solid var(--primary);
+  border-top: 2px solid var(--primary);
+  // border: 2px solid var(--primary);
 
   #nav-links-container {
     display: flex;
@@ -78,7 +78,7 @@ ol, ul {
     color: white;
     font-weight: bold;
     font-size: 1.7rem;
-    text-shadow: 3px 3px $accent;
+    text-shadow: 3px 3px var(--accent);
   }
 }
 
@@ -105,7 +105,7 @@ ol, ul {
   $icon-color-map: (
     "white": white,
     "black": black,
-    "colored": $accent
+    "colored": var(--accent)
   );
 
   @each $color-suffix, $color in $icon-color-map {
