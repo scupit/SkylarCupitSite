@@ -2,17 +2,17 @@
 
 // $primary: #87c887;
 // $secondary: #e9ffe9;
-// $contact-box-color: #76e4c5;
-// $contact-box-color: #b876e4;
-// $contact-box-color: #76dde4;
+// $tertiary: #76e4c5;
+// $tertiary: #b876e4;
+// $tertiary: #76dde4;
 
 // $primary: #87c0c8;
 // $secondary: #e9f8ff;
-// $contact-box-color: #d1d07d;
+// $tertiary: #d1d07d;
 
 // $primary: #c88787;
 // $secondary: #ffe9e9;
-// $contact-box-color: #be1212;
+// $tertiary: #be1212;
 
 // $accent: darken($primary, 10%);
 // $dark-accent: darken($accent, 10%);
@@ -21,7 +21,7 @@
 @mixin define-palette($suffix, $primary-color, $secondary-color, $tertiary-color) {
   --primary#{$suffix}: #{$primary-color};
   --secondary#{$suffix}: #{$secondary-color};
-  --contact-box-color#{$suffix}: #{$tertiary-color};
+  --tertiary#{$suffix}: #{$tertiary-color};
 
   --card-bg#{$suffix}: #{lighten($primary-color, 13%)};
   --contrast-bg#{$suffix}: #{darken($tertiary-color, 10%)};
@@ -34,10 +34,6 @@
   --darkest-accent#{$suffix}: #{darken($dark-accent, 10%)};
 }
 
-* {
-  transition: background-color 1.5s ease;
-}
-
 :root {
   @include define-palette("0", #87c887, #e9ffe9, #76e4c5);
   @include define-palette("1", #87c0c8, #e9f8ff, #d1d07d);
@@ -45,7 +41,7 @@
 
   --primary: var(--primary0);
   --secondary: var(--secondary0);
-  --contact-box-color: var(--contact-box-color0);
+  --tertiary: var(--tertiary0);
 
   --card-bg: var(--card-bg0);
   --contrast-bg: var(--contrast-bg0);

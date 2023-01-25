@@ -1,18 +1,32 @@
-// Important! This is required for SCSS (CSS) to be loaded into the page.
-// Each TS file acts as a Webpack "entrypoint". This imports SCSS into the entrypoint,
-// where it is processed by the SCSS and CSS loaders and embedded into an HTML file which
-// is configured to use this entrypoint.
-import "home-page.scss";
-import "../index.mustache"
+import "styles/index.scss";
 
 let paletteIndex = 0;
+
+if (document.readyState === "loading") {
+  initPage();
+}
+else {
+  window.addEventListener("DOMContentLoaded", initPage);
+}
+
+function initPage() {
+  const body = document.getElementsByTagName("body")[0];
+
+  body.style.visibility = "visible";
+
+  document.getElementById("site-options")
+    ?.addEventListener("click", () => {
+      paletteIndex = (paletteIndex + 1) % 3;
+      selectPalette(paletteIndex);
+    });
+}
 
 function selectPalette(index: number) {
   const docRoot: HTMLElement = document.documentElement;
   const propertyList: string[] = [
     "primary",
     "secondary",
-    "contact-box-color",
+    "tertiary",
     "card-bg",
     "contrast-bg",
     "contrast-bg-dark",
@@ -25,9 +39,3 @@ function selectPalette(index: number) {
     docRoot.style.setProperty(`--${propertyName}`, `var(--${propertyName}${index})`);
   }
 }
-
-document.getElementById("site-options")!
-  .addEventListener("click", () => {
-    paletteIndex = (paletteIndex + 1) % 3;
-    selectPalette(paletteIndex);
-  })

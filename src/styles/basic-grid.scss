@@ -56,6 +56,7 @@ $card-split-nums: 1, 2, 3, 4;
   }
 
   & > div {
+    @include bg-fade;
     color: white;
     border-radius: 5px;
     background-color: var(--primary);
@@ -76,7 +77,7 @@ $card-split-nums: 1, 2, 3, 4;
     &.big-card > .title-area
     {
       @include slight-shadow;
-      // @include basic-gradient-bg(var(--contact-box-color));
+      // @include basic-gradient-bg(var(--tertiary));
       // background-color: var(--accent);
       background-color: var(--primary);
       margin-bottom: $spacing-normal;
@@ -195,9 +196,10 @@ $card-split-nums: 1, 2, 3, 4;
   }
 
   .card {
-    $radius-size: 10px;
-
     @include slight-shadow;
+    @include bg-fade;
+
+    $radius-size: 10px;
 
     display: flex;
     flex-direction: column;
@@ -214,11 +216,13 @@ $card-split-nums: 1, 2, 3, 4;
     & > h2:first-child,
     & > h3:first-child
     {
+      @include bg-fade;
       $inner-radius-size: 7.5px;
+
       color: white;
       background-color: var(--primary);
-      // border-radius: $radius-size $radius-size 0 0;
-      border-radius: $inner-radius-size $inner-radius-size 0 0;
+
+      border-radius: $radius-size $radius-size 0 0;
       padding: $spacing-small;
       text-align: center;
 
@@ -314,7 +318,7 @@ $card-split-nums: 1, 2, 3, 4;
     background: linear-gradient(
       to right,
       var(--contrast-bg-dark),
-      var(--contact-box-color)
+      var(--tertiary)
     );
 
     grid-column: 1 / -1;

@@ -2,6 +2,11 @@
   box-shadow: 0 3px 5px -3px lighten(black, 25%);
 }
 
+@mixin bg-fade($duration: 1s, $delay: 0s) {
+  transition: background-color $duration ease $delay;
+  backface-visibility: hidden;
+}
+
 @mixin text-icon-mask($url-string, $bg-color: white) {
   mask-image: url($url-string);
   mask-mode: alpha;
@@ -47,7 +52,7 @@
       width $transition-details,
       box-shadow $transition-details;
 
-    background-color: var(--contact-box-color);
+    background-color: var(--tertiary);
     border-radius: $spacing-small;
   }
 

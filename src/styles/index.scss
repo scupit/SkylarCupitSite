@@ -1,9 +1,12 @@
 @import "normalize.css";
 @import "styles/palette.scss";
 @import "styles/basic-grid.scss";
+@import "styles/mixins.scss";
 @import "styles/spacing.scss";
 
 body {
+  @include bg-fade;
+  visibility: hidden;
   background-color: var(--secondary);
   box-sizing: border-box;
   background-size: contain;
@@ -17,6 +20,30 @@ a {
   padding: calc($spacing-small / 2);
 }
 
+button {
+  // display: none;
+  padding: $spacing-small;
+  color: var(--darkest-accent);
+  border: 2px solid var(--darkest-accent);
+  background-color: var(--secondary);
+  border-radius: $spacing-small;
+
+  transition:
+    background-color 1s ease,
+    border-color 1s ease
+    color 1s ease;
+
+  &:hover {
+    transition: none;
+    background-color: var(--card-bg);
+  }
+
+  &:active {
+    color: white;
+    background-color: var(--dark-accent);
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
@@ -25,8 +52,63 @@ ol, ul {
   padding-left: 30px;
 }
 
+table {
+  td {
+    display: inline-block;
+    padding: $spacing-small 0;
+  }
+
+  a {
+    padding: $spacing-small;
+  }
+
+  &.large-links {
+    font-size: 1.2rem;
+  }
+}
+
+.image-container-root {
+  display: flex;
+  grid-column: 1 / -1;
+  // grid-column: span 5 / auto;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  .image-col {
+    display: block;
+
+    @include small-screen-only {
+      flex: 100%;
+      max-width: 100%;
+    }
+
+    @include medium-screen-only {
+      flex: 50%;
+      max-width: 50%;
+    }
+
+    @include large-screen-only {
+      flex: 25%;
+      max-width: 25%;
+    }
+  }
+
+  .card {
+    display: block;
+    min-height: unset;
+    background: none;
+    margin: 0 $spacing-small $spacing-normal;
+
+    .image-container, .figure, img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
 #nav-area {
   @include slight-shadow;
+
   display: flex;
   flex-direction: row;
   position: sticky;
@@ -47,13 +129,22 @@ ol, ul {
   min-height: 3rem;
   border-bottom: 2px solid var(--primary);
   border-top: 2px solid var(--primary);
-  // border: 2px solid var(--primary);
+  transition: border-color 1s ease;
+
+  & > div {
+    padding: 0 $spacing-large;
+  }
+
+  & > .no-left-pad {
+    padding-left: 0;
+  }
 
   #nav-links-container {
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
     // flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     
     @include small-screen-only {
       margin-top: $spacing-small;
@@ -84,10 +175,17 @@ ol, ul {
 
 #content {
   padding: $spacing-large;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   @include small-screen-only {
     padding: $spacing-normal;
   }
+}
+
+.no-white-link a {
+  color: revert;
 }
 
 @media screen and (max-width: 480px) {
