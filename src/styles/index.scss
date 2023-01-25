@@ -6,7 +6,7 @@
 
 body {
   @include bg-fade;
-  visibility: hidden;
+  // visibility: hidden;
   background-color: var(--secondary);
   box-sizing: border-box;
   background-size: contain;
@@ -129,7 +129,7 @@ table {
   min-height: 3rem;
   border-bottom: 2px solid var(--primary);
   border-top: 2px solid var(--primary);
-  transition: border-color 1s ease;
+  // transition: border-color 1s ease;
 
   & > div {
     padding: 0 $spacing-large;

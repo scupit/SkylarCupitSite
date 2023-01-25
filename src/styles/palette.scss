@@ -39,15 +39,29 @@
   @include define-palette("1", #87c0c8, #e9f8ff, #d1d07d);
   @include define-palette("2", #c88787, #ffe9e9, #be1212);
 
-  --primary: var(--primary0);
-  --secondary: var(--secondary0);
-  --tertiary: var(--tertiary0);
+  // --primary: var(--primary0);
+  // --secondary: var(--secondary0);
+  // --tertiary: var(--tertiary0);
 
-  --card-bg: var(--card-bg0);
-  --contrast-bg: var(--contrast-bg0);
-  --contrast-bg-dark: var(--contrast-bg-dark0);
+  // --card-bg: var(--card-bg0);
+  // --contrast-bg: var(--contrast-bg0);
+  // --contrast-bg-dark: var(--contrast-bg-dark0);
 
-  --accent: var(--accent0);
-  --dark-accent: var(--dark-accent0);
-  --darkest-accent: var(--darkest-accent0);
+  // --accent: var(--accent0);
+  // --dark-accent: var(--dark-accent0);
+  // --darkest-accent: var(--darkest-accent0);
+
+  $default-before-fade: rgba(0, 0, 0, 0);
+
+  --primary: $default-before-fade;
+  --secondary: $default-before-fade;
+  --tertiary: $default-before-fade;
+
+  --card-bg: $default-before-fade;
+  --contrast-bg: $default-before-fade;
+  --contrast-bg-dark: $default-before-fade;
+
+  --accent: $default-before-fade;
+  --dark-accent: $default-before-fade;
+  --darkest-accent: $default-before-fade;
 }
