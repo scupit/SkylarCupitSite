@@ -114,7 +114,7 @@ function commonConfig(isDevMode) {
       index: './src/index.ts'
     },
     output: {
-      filename: 'js/[name].js',
+      filename: isDevMode ? 'js/[name].js' : 'js/[name].[chunkhash].js',
       chunkFilename: '[name].[chunkhash].js',
       publicPath: "/"
     },
