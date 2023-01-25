@@ -1,6 +1,6 @@
 import "styles/index.scss";
 
-let paletteIndex = 0;
+let paletteIndex: number = loadPaletteIndex();
 
 if (document.readyState === "loading") {
   initPage();
@@ -11,6 +11,7 @@ else {
 
 function initPage() {
   const body = document.getElementsByTagName("body")[0];
+  selectPalette(paletteIndex);
 
   body.style.visibility = "visible";
 
@@ -19,6 +20,21 @@ function initPage() {
       paletteIndex = (paletteIndex + 1) % 3;
       selectPalette(paletteIndex);
     });
+}
+
+function loadPaletteIndex(): number {
+  const storedIndex = localStorage.getItem("paletteIndex");
+
+  if (!storedIndex) {
+    return 0;
+  }
+
+  const parsed = parseInt(storedIndex, 10);
+  return isNaN(parsed) ? 0 : parsed;
+}
+
+function storePaletteIndex(index: number): void {
+  localStorage.setItem("paletteIndex", index.toString());
 }
 
 function selectPalette(index: number) {
@@ -38,4 +54,6 @@ function selectPalette(index: number) {
   for (const propertyName of propertyList) {
     docRoot.style.setProperty(`--${propertyName}`, `var(--${propertyName}${index})`);
   }
+
+  storePaletteIndex(index);
 }
