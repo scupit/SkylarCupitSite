@@ -2,10 +2,11 @@
 
 My personal website. See the finished product at [skylarcupit.com](https://skylarcupit.com/).
 
-## Requirements
+## Build Requirements
 
+- [NodeJS](https://nodejs.org/en/download/)
 - [Yarn](https://yarnpkg.com/getting-started/install), ideally Yarn 3 or higher.
-- [7Zip](https://www.7-zip.org/) is only required when running the site packager scripts.
+- [7Zip](https://www.7-zip.org/) (**only required when running the site packager scripts**).
 
 ## Initial Setup
 
