@@ -11,6 +11,14 @@
   justify-content: space-between;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
 $spacing-map: (
   "lg": $spacing-large,
   "md": $spacing-normal,
