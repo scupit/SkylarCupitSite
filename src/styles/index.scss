@@ -131,7 +131,7 @@ table {
   align-items: center;
   z-index: 1;
 
-  width: 100%;
+  max-width: 100%;
   background: linear-gradient(
     45deg,
     var(--darkest-accent) 0 20%,
@@ -185,6 +185,11 @@ table {
     font-size: 1.7rem;
     text-shadow: 3px 3px var(--accent);
   }
+
+  @include large-screen-only {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
 }
 
 #content {
@@ -195,6 +200,10 @@ table {
 
   @include small-screen-only {
     padding: $spacing-normal;
+  }
+
+  @include large-screen-only {
+    margin: auto 15vw;
   }
 }
 
