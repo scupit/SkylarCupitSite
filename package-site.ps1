@@ -9,6 +9,7 @@ if (Test-Path .\dist\resume) {
 }
 
 Copy-Item -Recurse -Force .\resume\dist .\dist\resume
+Copy-item -Path '.\robots.txt' -Destination '.\dist'
 
 7z a -ttar my_site.tar dist
 7z a -tgzip my_site.tar.gz my_site.tar
