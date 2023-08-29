@@ -5,10 +5,12 @@
   @include slight-shadow;
   @include bg-fade;
 
+  $horizontal-padding: $spacing-lg;
+
   background-color: var(--card-bg);
   border-radius: $br-md;
   min-height: 150px;
-  padding: $spacing-sm;
+  padding: $spacing-sm $horizontal-padding;
 
   &.no-outer-pad {
     padding: 0;
@@ -16,14 +18,17 @@
 
   & .title:first-child {
     @include bg-fade;
-    $inner-radius: $br-md - $spacing-sm;
+    $horizontal-fix: -$horizontal-padding + $spacing-sm;
 
     padding: $spacing-sm;
+    margin-left: $horizontal-fix;
+    margin-right: $horizontal-fix;
+
     text-align: center;
 
     color: white;
     background-color: var(--primary);
-    border-radius: $inner-radius $inner-radius 0 0;
+    border-radius: $br-sm $br-sm 0 0;
   }
 }
 
@@ -85,5 +90,26 @@
 
   & > img {
     transform: scale(1.1);
+  }
+}
+
+.card.title {
+  background: linear-gradient(
+    to right,
+    var(--contrast-bg-dark),
+    var(--tertiary)
+  );
+
+  grid-column: 1 / -1;
+  padding: $spacing-lg;
+  min-height: unset;
+
+  & > .white-title {
+    color: white;
+  }
+
+  & > .page-title {
+    color: white;
+    font-size: 2.5rem;
   }
 }

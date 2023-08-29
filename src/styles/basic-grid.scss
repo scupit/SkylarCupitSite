@@ -195,32 +195,7 @@ $card-split-nums: 1, 2, 3, 4;
     align-items: flex-start;
   }
 
-  .title-card {
-    background: linear-gradient(
-      to right,
-      var(--contrast-bg-dark),
-      var(--tertiary)
-    );
-
-    grid-column: 1 / -1;
-    padding: $spacing-lg;
-    min-height: unset;
-
-    & > .white-title {
-      color: white;
-    }
-
-    & > h3.white-title {
-      width: fit-content;
-      padding-right: $spacing-lg;
-      padding-left: $spacing-lg;
-    }
-
-    .page-title {
-      color: white;
-      font-size: 2.5rem;
-    }
-  }
+  
 
   .card-tall {
     grid-row: span 2 / auto;
