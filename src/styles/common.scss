@@ -1,0 +1,21 @@
+@import "palette";
+
+// Font sizes
+$fs-1: 3rem;
+$fs-2: 2rem;
+$fs-3: 1.6rem;
+$fs-4: 1.2rem;
+$fs-p: 1rem;
+$fs-sm: 0.8rem;
+
+$spacing-sm: 5px;
+$spacing-md: 10px;
+$spacing-lg: 20px;
+
+// Media query bounds
+// $screen-width-large: 1025px;
+$screen-width-large: 1080px;
+$screen-width-small: 481px;
+
+$br-md: 10px;
+$br-sm: 5px;

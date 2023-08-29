@@ -58,7 +58,7 @@
       box-shadow $transition-details;
 
     background-color: var(--tertiary);
-    border-radius: $spacing-small;
+    border-radius: $spacing-sm;
   }
 
   &:hover::before {

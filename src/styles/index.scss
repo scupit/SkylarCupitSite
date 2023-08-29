@@ -1,9 +1,12 @@
 @import "normalize.css";
-@import "styles/palette.scss";
-@import "styles/basic-grid.scss";
-@import "styles/mixins.scss";
-@import "styles/sizing.scss";
-@import "styles/spacing.scss";
+
+@import "common";
+@import "card";
+@import "image-gallery";
+@import "palette";
+@import "basic-grid";
+@import "mixins";
+@import "utils";
 
 body {
   @include bg-fade;
@@ -18,16 +21,16 @@ a {
   position: relative;
   color: white;
   border-radius: 5px;
-  padding: calc($spacing-small / 2);
+  padding: calc($spacing-sm / 2);
 }
 
 button {
   // display: none;
-  padding: $spacing-small;
+  padding: $spacing-sm;
   color: var(--darkest-accent);
   border: 2px solid var(--darkest-accent);
   background-color: var(--secondary);
-  border-radius: $spacing-small;
+  border-radius: $spacing-sm;
 
   transition:
     background-color 1s ease,
@@ -48,7 +51,7 @@ button {
 code {
   @include slight-shadow-inset;
   background-color: var(--secondary);
-  padding: $spacing-small;
+  padding: $spacing-sm;
   // box-shadow: 2px 2px 2px 0 black inset;
   overflow: scroll;
   white-space: nowrap;
@@ -69,11 +72,11 @@ ol, ul {
 table {
   td {
     display: inline-block;
-    padding: $spacing-small 0;
+    padding: $spacing-sm 0;
   }
 
   a {
-    padding: $spacing-small;
+    padding: $spacing-sm;
   }
 
   &.large-links {
@@ -81,44 +84,6 @@ table {
   }
 }
 
-.image-container-root {
-  display: flex;
-  grid-column: 1 / -1;
-  // grid-column: span 5 / auto;
-  align-items: flex-start;
-  flex-wrap: wrap;
-
-  .image-col {
-    display: block;
-
-    @include small-screen-only {
-      flex: 100%;
-      max-width: 100%;
-    }
-
-    @include medium-screen-only {
-      flex: 50%;
-      max-width: 50%;
-    }
-
-    @include large-screen-only {
-      flex: 25%;
-      max-width: 25%;
-    }
-  }
-
-  .card {
-    display: block;
-    min-height: unset;
-    background: none;
-    margin: 0 $spacing-small $spacing-normal;
-
-    .image-container, .figure, img {
-      display: block;
-      width: 100%;
-    }
-  }
-}
 
 #nav-area {
   @include slight-shadow;
@@ -146,7 +111,7 @@ table {
   // transition: border-color 1s ease;
 
   & > div {
-    padding: 0 $spacing-large;
+    padding: 0 $spacing-lg;
   }
 
   & > .no-left-pad {
@@ -161,7 +126,7 @@ table {
     justify-content: center;
     
     @include small-screen-only {
-      margin-top: $spacing-small;
+      margin-top: $spacing-sm;
       border-top: 4px double white;
     }
 
@@ -173,9 +138,9 @@ table {
   a {
     font-size: 1.3rem;
     position: relative;
-    margin: 0 $spacing-small;
+    margin: 0 $spacing-sm;
     text-decoration: none;
-    padding: $spacing-small;
+    padding: $spacing-sm;
   }
 
   .site-title {
@@ -193,13 +158,13 @@ table {
 }
 
 #content {
-  padding: $spacing-large;
+  padding: $spacing-lg;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   @include small-screen-only {
-    padding: $spacing-normal;
+    padding: $spacing-md;
   }
 
   @include large-screen-only {
@@ -214,10 +179,10 @@ table {
 @media screen and (max-width: 480px) {
   #nav-area {
     flex-direction: column;
-    padding-bottom: $spacing-small;
+    padding-bottom: $spacing-sm;
 
     .site-title {
-      padding-bottom: $spacing-normal;
+      padding-bottom: $spacing-md;
     }
   }
 }

@@ -1,6 +1,6 @@
-@import "./mixins.scss";
-@import "./palette.scss";
-@import "./spacing.scss";
+@import "mixins";
+@import "palette";
+@import "common";
 
 $card-split-nums: 1, 2, 3, 4;
 
@@ -9,8 +9,8 @@ $card-split-nums: 1, 2, 3, 4;
     @extend .private-split-card-base; 
 
     grid-template-columns: repeat($n, 1fr);
-    gap: $spacing-normal;
-    // gap: $spacing-large;
+    gap: $spacing-md;
+    // gap: $spacing-lg;
 
     @media screen and (max-width: 840px) {
       grid-template-columns: repeat($n - 1, 1fr);
@@ -36,7 +36,7 @@ $card-split-nums: 1, 2, 3, 4;
   }
 
   @include large-screen-only {
-    margin: $spacing-small;
+    margin: $spacing-sm;
   }
 
   @media screen and (max-width: 840px) {
@@ -60,7 +60,7 @@ $card-split-nums: 1, 2, 3, 4;
     color: white;
     border-radius: 5px;
     background-color: var(--primary);
-    padding: $spacing-normal;
+    padding: $spacing-md;
     display: block;
 
     &.flexed-col {
@@ -80,8 +80,8 @@ $card-split-nums: 1, 2, 3, 4;
       // @include basic-gradient-bg(var(--tertiary));
       // background-color: var(--accent);
       background-color: var(--primary);
-      margin-bottom: $spacing-normal;
-      padding: $spacing-normal;
+      margin-bottom: $spacing-md;
+      padding: $spacing-md;
       border-radius: 10px;
     }
 
@@ -92,7 +92,7 @@ $card-split-nums: 1, 2, 3, 4;
     {
       display: block;
       border-bottom: 2px solid white;
-      margin-bottom: $spacing-normal;
+      margin-bottom: $spacing-md;
     }
 
     @for $i from 0 through 20 {
@@ -121,7 +121,7 @@ $card-split-nums: 1, 2, 3, 4;
       & > h1:first-child, & > h2:first-child {
         display: block;
         border-bottom: 2px solid white;
-        margin-bottom: $spacing-normal;
+        margin-bottom: $spacing-md;
       }
     }
 
@@ -168,10 +168,10 @@ $card-split-nums: 1, 2, 3, 4;
   flex: 1;
   display: grid;
 
-  gap: $spacing-large;
+  gap: $spacing-lg;
 
   @include small-screen-only {
-    gap: $spacing-small;
+    gap: $spacing-sm;
   }
 
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -195,125 +195,6 @@ $card-split-nums: 1, 2, 3, 4;
     align-items: flex-start;
   }
 
-  .card {
-    @include slight-shadow;
-    @include bg-fade;
-
-    $radius-size: 10px;
-
-    display: flex;
-    flex-direction: column;
-
-    background-color: var(--card-bg);
-    border-radius: $radius-size;
-    min-height: 150px;
-    padding: $spacing-small;
-
-    &.no-outer-pad {
-      padding: 0;
-    }
-
-    & > h2:first-child,
-    & > h3:first-child
-    {
-      @include bg-fade;
-      $inner-radius-size: 7.5px;
-
-      color: white;
-      background-color: var(--primary);
-
-      border-radius: $radius-size $radius-size 0 0;
-      padding: $spacing-small;
-      text-align: center;
-
-      &.contrast-bg {
-        background-color: var(--contrast-bg);
-      }
-
-      &.dark-bg {
-        background-color: var(--accent);
-      }
-    }
-
-    ul, ol {
-      margin-top: $spacing-normal;
-      margin-bottom: $spacing-normal;
-    }
-
-    .card-body {
-      padding: $spacing-normal;
-    }
-
-    .card-body-cramped {
-      padding: $spacing-small;
-    }
-
-    .image-container {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      align-items: center;
-      justify-content: center;
-      
-      img {
-        max-width: 100%;
-        max-height: 100%;
-        border-radius: 10px;
-      }
-
-      figure {
-        position: relative;
-        margin: 0;
-        padding: 0;
-        max-width: 100%;
-        max-height: 100%;
-        border-radius: 10px;
-        overflow: hidden;
-
-        & > img {
-          width: 100%;
-          height: 100%;
-          transition: transform 0.1s ease-out;
-        }
-
-        & > figcaption {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-
-          color: white;
-          font-size: 1.8rem;
-          text-align: center;
-          padding: $spacing-small;
-
-          background-color: rgba(black, 0.5);
-          transition: opacity 0.1s ease-out;
-          opacity: 0;
-        }
-
-        &:hover {
-          & > figcaption {
-            opacity: 1;
-          }
-
-          & > img {
-            transform: scale(1.1);
-          }
-        }
-      }
-    }
-
-    .contrast-bg + .image-container > img {
-      border-radius: 0 0 $radius-size $radius-size;
-    }
-  }
-
   .title-card {
     background: linear-gradient(
       to right,
@@ -322,7 +203,7 @@ $card-split-nums: 1, 2, 3, 4;
     );
 
     grid-column: 1 / -1;
-    padding: $spacing-large;
+    padding: $spacing-lg;
     min-height: unset;
 
     & > .white-title {
@@ -331,8 +212,8 @@ $card-split-nums: 1, 2, 3, 4;
 
     & > h3.white-title {
       width: fit-content;
-      padding-right: $spacing-large;
-      padding-left: $spacing-large;
+      padding-right: $spacing-lg;
+      padding-left: $spacing-lg;
     }
 
     .page-title {
@@ -351,7 +232,7 @@ $card-split-nums: 1, 2, 3, 4;
 }
 
 .card-block + .card-block {
-  margin-top: $spacing-large;
+  margin-top: $spacing-lg;
 }
 
 @include small-screen-only {
@@ -359,7 +240,7 @@ $card-split-nums: 1, 2, 3, 4;
     grid-template-columns: 1fr;
 
     .card {
-      margin: $spacing-small;
+      margin: $spacing-sm;
       grid-column: span 2 / auto;
 
       ul, ol {
