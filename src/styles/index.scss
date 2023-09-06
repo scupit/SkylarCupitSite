@@ -9,6 +9,12 @@
 @import "icons";
 @import "utils";
 
+:root {
+  font-size: 18px;
+  // font-family: Arial, Helvetica, sans-serif;
+  // line-height: 1.2;
+}
+
 body {
   @include bg-fade;
   // visibility: hidden;
@@ -62,6 +68,22 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+h1 {
+  font-size: $fs-1;
+}
+
+h2 {
+  font-size: $fs-2;
+}
+
+h3 {
+  font-size: $fs-3;
+}
+
+p {
+  font-size: $fs-p;
+}
+
 img {
   max-width: 100%;
 }
@@ -83,6 +105,10 @@ table {
   &.large-links {
     font-size: 1.2rem;
   }
+}
+
+video {
+  max-width: 700px;
 }
 
 #nav-area {
@@ -155,11 +181,11 @@ table {
 }
 
 main, #content {
-  padding: $spacing-lg;
+  margin: 0;
+  padding: $spacing-lg $spacing-lg * 2;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto 15vw;
 }
 
 .no-white-link a {
@@ -182,12 +208,16 @@ main, #content {
     padding-left: 15vw;
     padding-right: 15vw;
   }
+
+  main, #content {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
 }
 
 @media (max-width: $screen-width-small) or (max-height: $screen-height-small) {
   main, #content {
     padding: $spacing-md;
-    margin: 0;
   }
 }
 
