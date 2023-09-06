@@ -1,164 +1,109 @@
 @import "mixins";
 @import "palette";
 @import "common";
-@import "refactored-grid";
 
-$card-split-nums: 1, 2, 3, 4;
+.grid-2-high {
+  grid-row: span 2;
+}
 
-@each $n in $card-split-nums {
-  .split-card-#{$n} {
-    @extend .private-split-card-base; 
+// Trying to span 2 columns when only 1 is present results
+// in css creating another column, part of the "implicit grid"
+// When that happens, title cards spanning '1 / -1' fail to find the end of the implicit grid.
+// It's unfortunate, but I think I'll have to use JavaScript to set grid-column for this class
+// based on the number of available columns.
+// 
+// If I also dynamically set an attribute for the number of columns on grids, I could use a selector
+// like this:
+// .grid-basic:not([columns-wide=1]) .grid-2-wide
+// TODO: Maybe fix this, if it becomes an issue.
 
-    grid-template-columns: repeat($n, 1fr);
-    gap: $spacing-md;
-    // gap: $spacing-lg;
+.grid-2-wide {
+  // grid-column: span 2;
+}
 
-    @media screen and (max-width: 840px) {
-      grid-template-columns: repeat($n - 1, 1fr);
-      // This grid-template-rows might not even be necessary. It just ensures the two left boxes have equal length.
-      grid-template-rows: repeat($n - 2, 1fr);
-    }
+@for $i from 0 through 20 {
+  .card:nth-child(#{$i}) {
+    // TODO: Refactor this so the slide-in code is not duplicated for each card.
+    @include basic-slide-in($i);
   }
 }
 
-.private-split-card-base {
-  flex: 1;
+.grid-basic {
   display: grid;
-  max-width: 100%;
-  min-height: 50vh;
+  gap: $spacing-lg;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
 
-  & & {
-    min-height: unset;
+.grid-basic + .grid-basic {
+  margin-top: $spacing-lg;
+}
+
+
+// ########################################
+// Split card grid
+// ########################################
+
+$split-card-outer-spacing: $spacing-md;
+
+.split-card-grid {
+  // display: grid;
+  // grid-template-columns: repeat(
+  //   auto-fill,
+  //   minmax(1fr, 250px) minmax(2fr, 500px) minmax(1fr, 250px)
+  // );
+  display: flex;
+  // flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: -$split-card-outer-spacing;
+}
+
+.split-card-grid > div {
+  @include bg-fade;
+
+  color: white;
+  background-color: var(--primary);
+
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  margin: $split-card-outer-spacing;
+  border-radius: $br-md;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  min-width: min(200px, 40vw);
+
+  &:nth-child(3n + 1) {
+    @include basic-slide-in(1);
+  }
+  
+  &:nth-child(3n + 2) {
+    @include basic-slide-in(2);
+    @include slight-shadow;
+
+    background-color: var(--accent);
+
+    flex: 2;
+    min-width: min(400px, 50vw);
   }
 
-  .card-block .card:not(.title-card) {
-    opacity: 1;
-    animation: none;
+  &:nth-child(3n) {
+    @include basic-slide-in(3);
   }
 
-  @include large-screen-only {
-    margin: $spacing-sm;
-  }
-
-  @media screen and (max-width: 840px) {
-    & > .big-card {
-      grid-row: auto / span 2;
-    }
-  }
-
-  @include small-screen-only {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: unset;
-  }
-
-  p {
-    font-size: large;
-    margin: 0;
-  }
-
-  & > div {
-    @include bg-fade;
-    color: white;
-    border-radius: 5px;
-    background-color: var(--primary);
-    padding: $spacing-md;
+  & > .title:first-child {
     display: block;
-
-    &.flexed-col {
-      display: flex;
-      flex-direction: column;
-    }
-
-    &.flexed-row {
-      display: flex;
-      flex-direction: row;
-    }
-
-    & > .title-area,
-    &.big-card > .title-area
-    {
-      @include slight-shadow;
-      // @include basic-gradient-bg(var(--tertiary));
-      // background-color: var(--accent);
-      background-color: var(--primary);
-      margin-bottom: $spacing-md;
-      padding: $spacing-md;
-      border-radius: 10px;
-    }
-
-    & > h1:first-child,
-    & > h2:first-child,
-    .title-area > h1:first-child,
-    .title-area > h2:first-child
-    {
-      display: block;
-      border-bottom: 2px solid white;
-      margin-bottom: $spacing-md;
-    }
-
-    @for $i from 0 through 20 {
-      &:nth-child(#{$i}) {
-        @include basic-slide-in($i);
-      }
-    }
-
-    &.big-card {
-      background-color: var(--accent);
-
-      @include large-screen-only {
-        grid-column: auto / span 2;
-      }
-
-      @include medium-screen-only {
-        grid-column: auto / span 2;
-      }
-
-      @include small-screen-only {
-        grid-row: auto / span 2;
-      }
-    }
-
-    & > .title-area {
-      & > h1:first-child, & > h2:first-child {
-        display: block;
-        border-bottom: 2px solid white;
-        margin-bottom: $spacing-md;
-      }
-    }
-
-    &.no-bg {
-      background: none;
-      padding: 0;
-    }
+    border-bottom: 2px solid white;
+    font-size: $fs-2;
+    color: white;
   }
 
-  .contact-box {
+  & > .centered-body {
     flex: 1;
     display: flex;
-
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-  }
-
-  .about-me-box {
-    display: flex;
-    flex-direction: column;
-  }
-
-
-  .about-me-box .about-me-body {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    align-items: center;
-
-    @include small-screen-only {
-      flex-direction: column;
-    }
-
-    & > div {
-      flex: 1;
-    }
   }
 }

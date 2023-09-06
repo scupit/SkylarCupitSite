@@ -12,6 +12,8 @@
   border-radius: $br-md;
   min-height: 150px;
   padding: $spacing-sm $horizontal-padding;
+  display: flex;
+  flex-direction: column;
 
   &.no-outer-pad {
     padding: 0;

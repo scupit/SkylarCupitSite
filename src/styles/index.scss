@@ -5,7 +5,6 @@
 @import "image-gallery";
 @import "palette";
 @import "basic-grid";
-@import "refactored-grid";
 @import "mixins";
 @import "utils";
 
@@ -67,7 +66,7 @@ img {
 }
 
 ol, ul {
-  padding-left: 30px;
+  padding-left: $spacing-lg;
 }
 
 table {

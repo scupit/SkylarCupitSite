@@ -1,3 +1,17 @@
+.huge-vertical-padding {
+  $padding-amount: $spacing-lg * 4;
+  padding-top: $padding-amount;
+  padding-bottom: $padding-amount;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -43,5 +57,20 @@ $position-map: (
     .b#{$position-suffix}-#{$spacing-suffix} {
       border-#{$position-name}: $spacing-value
     }
+  }
+}
+
+$font-size-map: (
+  1: $fs-1,
+  2: $fs-2,
+  3: $fs-3,
+  4: $fs-4,
+  "p": $fs-p,
+  "sm": $fs-sm
+);
+
+@each $fs-name, $fs-value in $font-size-map {
+  .fs-#{$fs-name} {
+    font-size: $fs-value;
   }
 }
