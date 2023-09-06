@@ -12,26 +12,6 @@
   backface-visibility: hidden;
 }
 
-@mixin text-icon-mask($url-string, $bg-color: white) {
-  mask-image: url($url-string);
-  mask-mode: alpha;
-  mask-position: center;
-  mask-repeat: repeat;
-  mask-size: cover;
-
-  // This is annoying, but mask icons now display properly on IOS Safari.
-  -webkit-mask-image: url($url-string);
-  -webkit-mask-mode: alpha;
-  -webkit-mask-position: center;
-  -webkit-mask-repeat: repeat;
-  -webkit-mask-size: cover;
-
-  background-color: $bg-color;
-  display: block;
-  width: 1em;
-  height: 1em;
-}
-
 @mixin basic-gradient-bg($color, $darken-amount: 20%) {
   background: linear-gradient(
     to right,

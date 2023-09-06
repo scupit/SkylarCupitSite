@@ -43,16 +43,10 @@
 // Split card grid
 // ########################################
 
-$split-card-outer-spacing: $spacing-md;
+$split-card-outer-spacing: $spacing-sm;
 
 .split-card-grid {
-  // display: grid;
-  // grid-template-columns: repeat(
-  //   auto-fill,
-  //   minmax(1fr, 250px) minmax(2fr, 500px) minmax(1fr, 250px)
-  // );
   display: flex;
-  // flex-direction: row;
   flex-direction: row;
   flex-wrap: wrap;
   margin: -$split-card-outer-spacing;
@@ -67,7 +61,7 @@ $split-card-outer-spacing: $spacing-md;
   gap: $spacing-lg;
   padding: $spacing-lg;
   margin: $split-card-outer-spacing;
-  border-radius: $br-md;
+  border-radius: $br-sm;
 
   display: flex;
   flex-direction: column;

@@ -6,6 +6,7 @@
 @import "palette";
 @import "basic-grid";
 @import "mixins";
+@import "icons";
 @import "utils";
 
 body {
@@ -176,41 +177,21 @@ main, #content {
   }
 }
 
-@mixin make-icon-classes($icon-file, $icon-name) {
-  $icon-color-map: (
-    "white": white,
-    "black": black,
-    "colored": var(--accent)
-  );
-
-  @each $color-suffix, $color in $icon-color-map {
-    .#{$icon-name}-icon-#{$color-suffix} {
-      @include text-icon-mask($icon-file, $color);
-    }
-
-    .#{$icon-name}-icon {
-      @extend .#{$icon-name}-icon-white;
-    }
-  }
-}
-
-@include make-icon-classes("/resources/github.svg", "github");
-@include make-icon-classes("/resources/email.svg", "email");
-@include make-icon-classes("/resources/cellphone.svg", "phone");
-@include make-icon-classes("/resources/link-variant.svg", "hyperlink");
-
-@media (max-width: $screen-width-large) {
+@media (min-width: $screen-width-large) {
   nav {
     padding-left: 15vw;
     padding-right: 15vw;
   }
 }
 
-@media (max-width: $screen-width-small) {
+@media (max-width: $screen-width-small) or (max-height: $screen-height-small) {
   main, #content {
-    padding: $spacing-sm;
+    padding: $spacing-md;
+    margin: 0;
   }
-  
+}
+
+@media (max-width: $screen-width-small) {
   #nav-links-container {
     margin-top: $spacing-sm;
     border-top: 4px double white;

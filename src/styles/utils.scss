@@ -74,3 +74,17 @@ $font-size-map: (
     font-size: $fs-value;
   }
 }
+
+$bg-color-map: (
+  "white": white,
+  "black": black,
+  "primary": var(--primary),
+  "secondary": var(--secondary),
+  "accent": var(--accent)
+);
+
+@each $color-name, $color-value in $bg-color-map {
+  .bg-#{$color-name} {
+    background-color: $color-value;
+  }
+}
