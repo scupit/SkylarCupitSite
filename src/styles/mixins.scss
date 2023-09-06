@@ -85,21 +85,3 @@
   animation: slide-fade-in-anim 0.3s ease-in (30ms * $delay-component-num);
   animation-fill-mode: forwards;
 }
-
-@mixin small-screen-only {
-  @media screen and (max-width: 480px) {
-    @content;
-  }
-}
-
-@mixin medium-screen-only {
-  @media screen and (min-width: 480px) and (max-width: 840px) {
-    @content;
-  }
-}
-
-@mixin large-screen-only {
-  @media screen and (min-width: 840px) {
-    @content;
-  }
-}

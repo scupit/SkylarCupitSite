@@ -124,11 +124,6 @@ table {
     // flex-direction: column;
     justify-content: center;
     
-    @include small-screen-only {
-      margin-top: $spacing-sm;
-      border-top: 4px double white;
-    }
-
     a {
       color: white;
     }
@@ -151,11 +146,6 @@ table {
     align-items: center;
     text-shadow: 2px 2px var(--accent);
   }
-
-  @include large-screen-only {
-    padding-left: 15vw;
-    padding-right: 15vw;
-  }
 }
 
 .site-nav-image {
@@ -168,14 +158,7 @@ main, #content {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  @include small-screen-only {
-    padding: $spacing-md;
-  }
-
-  @include large-screen-only {
-    margin: auto 15vw;
-  }
+  margin: auto 15vw;
 }
 
 .no-white-link a {
@@ -215,3 +198,21 @@ main, #content {
 @include make-icon-classes("/resources/email.svg", "email");
 @include make-icon-classes("/resources/cellphone.svg", "phone");
 @include make-icon-classes("/resources/link-variant.svg", "hyperlink");
+
+@media (max-width: $screen-width-large) {
+  nav {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+}
+
+@media (max-width: $screen-width-small) {
+  main, #content {
+    padding: $spacing-sm;
+  }
+  
+  #nav-links-container {
+    margin-top: $spacing-sm;
+    border-top: 4px double white;
+  }
+}
