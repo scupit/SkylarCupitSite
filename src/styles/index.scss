@@ -5,6 +5,7 @@
 @import "image-gallery";
 @import "palette";
 @import "basic-grid";
+@import "refactored-grid";
 @import "mixins";
 @import "utils";
 
@@ -157,7 +158,7 @@ table {
   }
 }
 
-#content {
+main, #content {
   padding: $spacing-lg;
   flex-direction: column;
   justify-content: center;

@@ -1,0 +1,39 @@
+@import "mixins";
+@import "palette";
+@import "common";
+
+.grid-2-high {
+  grid-row: span 2;
+}
+
+// Trying to span 2 columns when only 1 is present results
+// in css creating another column, part of the "implicit grid"
+// When that happens, title cards spanning '1 / -1' fail to find the end of the implicit grid.
+// It's unfortunate, but I think I'll have to use JavaScript to set grid-column for this class
+// based on the number of available columns.
+// 
+// If I also dynamically set an attribute for the number of columns on grids, I could use a selector
+// like this:
+// .grid-basic:not([columns-wide=1]) .grid-2-wide
+// TODO: Maybe fix this, if it becomes an issue.
+
+.grid-2-wide {
+  // grid-column: span 2;
+}
+
+@for $i from 0 through 20 {
+  .card:nth-child(#{$i}) {
+    // TODO: Refactor this so the slide-in code is not duplicated for each card.
+    @include basic-slide-in($i);
+  }
+}
+
+.grid-basic {
+  display: grid;
+  gap: $spacing-lg;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-basic + .grid-basic {
+  margin-top: $spacing-lg;
+}

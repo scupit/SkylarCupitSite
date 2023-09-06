@@ -9,71 +9,65 @@
 <body>
   {{> partials/link-bar }}
 
-  <div id="content">
-    <!-- <div class="card-block">
-      <div class="card title-card">
-        <h1 class="page-title">Portfolio</h1>
+  <main id="content">
+    <div class="card title">
+      <h1 class="white-title">Personal Projects</h1>
+    </div>
+
+    <div class="card mt-lg mb-lg">
+      <h3 class="title">GCMake: C/C++ Project Configuration Tool</h3>
+      <div class="card-body vertically-spaced">
+        <p>
+          <a href="https://github.com/scupit/gcmake-rust">gcmake-rust</a> is my C/C++ project configuration tool
+          written in Rust.
+          It acts as an opinionated layer over top of CMake, and aims to make C/C++ project configuration simpler and
+          much more intuitive.
+
+        <h4>Some of its features include:</h4>
+        <ul class="no-white-link">
+
+          <li><a
+               href="https://github.com/scupit/gcmake-rust/blob/develop/docs/cmake_data_config/properties/features.md">Cargo-like
+              "features"</a></li>
+          <li><a
+               href="https://github.com/scupit/gcmake-rust/blob/develop/docs/cmake_data_config/properties/prebuild_config.md#generated_code">configurable
+              pre-build scripts</a></li>
+          <li>Doxygen and Sphinx <a
+               href="https://github.com/scupit/gcmake-rust/blob/develop/docs/documenting_your_project.md">documentation
+              generator integration</a></li>
+          <li><a
+               href="https://github.com/scupit/gcmake-rust/blob/develop/docs/cmake_data_config/linking.md#conditional-dependencies">conditional
+              dependencies</a></li>
+          <li>Readable <a
+               href="https://github.com/scupit/gcmake-rust/blob/develop/docs/cmake_data_config/data_formats.md">constraint
+              expressions</a> (much less painful than <a
+               href="https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html">CMake generator
+              expressions</a>)</li>
+          <li>Full project, subproject, and test project generation</li>
+          <li>In-tree code file generation</li>
+          <li>Out of the box support for<a
+               href="https://github.com/scupit/gcmake-rust/blob/develop/docs/cppfront_integration.md">Herb Sutter's
+              <b>cppfront</b></a></li>
+        </ul>
+
+        <p>See <a href="https://github.com/scupit/gcmake-rust">the README</a> for more information.</p>
+        <video src="/resources/gcmake-example.webm" muted autoplay loop></video>
+
+        </p>
+        <table>
+          <tr>
+            <td>
+              <h2 class="github-icon-white"></h2>
+            </td>
+            <td>
+              <a href="https://github.com/scupit/gcmake-rust" target="_blank">Check it out on GitHub!</a>
+            </td>
+          </tr>
+        </table>
       </div>
-    </div> -->
-    <div class="card-block">
-      <div class="card title">
-        <h1 class="white-title">Personal Projects</h1>
-      </div>
+    </div>
+    <div class="grid-basic">
 
-      <div class="card card-long card-tall">
-        <h3 class="title">C/C++ Project Configuration Tool</h3>
-        <div class="card-body vertically-spaced">
-          <p>
-            <a href="https://github.com/scupit/gcmake-rust">gcmake-rust</a> is my C/C++ project configuration tool
-            written in Rust.
-            It acts as an opinionated layer over top of CMake, and aims to make C/C++ project configuration simpler and
-            much more intuitive.
-
-          <h4>Some of its features include:</h4>
-          <ul class="no-white-link">
-
-            <li><a
-                href="https://github.com/scupit/gcmake-rust/blob/develop/docs/cmake_data_config/properties/features.md">Cargo-like
-                "features"</a></li>
-            <li><a
-                href="https://github.com/scupit/gcmake-rust/blob/develop/docs/cmake_data_config/properties/prebuild_config.md#generated_code">configurable
-                pre-build scripts</a></li>
-            <li>Doxygen and Sphinx <a
-                href="https://github.com/scupit/gcmake-rust/blob/develop/docs/documenting_your_project.md">documentation
-                generator integration</a></li>
-            <li><a
-                href="https://github.com/scupit/gcmake-rust/blob/develop/docs/cmake_data_config/linking.md#conditional-dependencies">conditional
-                dependencies</a></li>
-            <li>Readable <a
-                href="https://github.com/scupit/gcmake-rust/blob/develop/docs/cmake_data_config/data_formats.md">constraint
-                expressions</a> (much less painful than <a
-                href="https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html">CMake generator
-                expressions</a>)</li>
-            <li>Full project, subproject, and test project generation</li>
-            <li>In-tree code file generation</li>
-            <li>Out of the box support for<a
-                href="https://github.com/scupit/gcmake-rust/blob/develop/docs/cppfront_integration.md">Herb Sutter's
-                <b>cppfront</b></a></li>
-          </ul>
-
-          <p>See <a href="https://github.com/scupit/gcmake-rust">the README</a> for more information.</p>
-          <img src="/resources/gcmake-example.gif" />
-
-          <!-- <br /><br /> -->
-          <!-- <code>gcmake-rust new root-project 'my-project'</code> -->
-          </p>
-          <table>
-            <tr>
-              <td>
-                <h2 class="github-icon-white"></h2>
-              </td>
-              <td>
-                <a href="https://github.com/scupit/gcmake-rust" target="_blank">Check it out on GitHub!</a>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
 
       <div class="card">
         <h3 class="title">Skylarcupit.com</h3>
@@ -132,7 +126,8 @@
         </div>
       </div>
     </div>
-    <div class="card-block">
+
+    <div class="grid-basic">
       <div class="card title">
         <h1 class="white-title">Photo Gallery</h1>
         <h3 class="white-title"><i>Tip: Hover photo for info.</i></h3>
@@ -257,7 +252,7 @@
       </div>
 
     </div>
-  </div>
+  </main>
 </body>
 
 </html>

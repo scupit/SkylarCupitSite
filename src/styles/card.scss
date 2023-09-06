@@ -6,6 +6,7 @@
   @include bg-fade;
 
   $horizontal-padding: $spacing-lg;
+  // grid-column: span 1;
 
   background-color: var(--card-bg);
   border-radius: $br-md;
@@ -16,7 +17,7 @@
     padding: 0;
   }
 
-  & .title:first-child {
+  & > .title:first-child {
     @include bg-fade;
     $horizontal-fix: -$horizontal-padding + $spacing-sm;
 
@@ -100,6 +101,7 @@
     var(--tertiary)
   );
 
+  // grid-column: 1 / -1;
   grid-column: 1 / -1;
   padding: $spacing-lg;
   min-height: unset;

@@ -1,6 +1,7 @@
 @import "mixins";
 @import "palette";
 @import "common";
+@import "refactored-grid";
 
 $card-split-nums: 1, 2, 3, 4;
 
@@ -159,129 +160,5 @@ $card-split-nums: 1, 2, 3, 4;
     & > div {
       flex: 1;
     }
-  }
-}
-
-.card-block {
-  color: black;
-  // color: white;
-  flex: 1;
-  display: grid;
-
-  gap: $spacing-lg;
-
-  @include small-screen-only {
-    gap: $spacing-sm;
-  }
-
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-  @for $i from 0 through 20 {
-    .card:nth-child(#{$i}) {
-      @include basic-slide-in($i);
-
-      &.title-card {
-        animation: none;
-        opacity: 1;
-      }
-    }
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  &.image-container-root {
-    align-items: flex-start;
-  }
-
-  
-
-  .card-tall {
-    grid-row: span 2 / auto;
-  }
-
-  .card-long {
-    grid-column: span 2 / auto;
-  }
-}
-
-.card-block + .card-block {
-  margin-top: $spacing-lg;
-}
-
-@include small-screen-only {
-  .card-block {
-    grid-template-columns: 1fr;
-
-    .card {
-      margin: $spacing-sm;
-      grid-column: span 2 / auto;
-
-      ul, ol {
-        line-height: 1.3em;
-      }
-    }
-
-    .title-card .page-title {
-      font-size: 2rem;
-    }
-  }
-}
-
-// .col-sm-2
-
-@for $i from 1 to 4 {
-  $size-map: (
-    "sm": "small",
-    "md": "medium",
-    "lg": "large"
-  );
-
-  @each $size-name, $prefix-name in $size-map {
-    .col-#{$size-name}-#{$i} {
-      $col-span: auto / span $i;
-
-      // This is annoying... but SCSS doesn't accept interpolation in variable names
-      // yet. Refactor this when that's possible.
-      @if $size-name == "sm" {
-        @include small-screen-only {
-          grid-column: $col-span;
-        }
-      }
-      @else if $size-name == "md" {
-        @include medium-screen-only {
-          grid-column: $col-span;
-        }
-      }
-      @else if $size-name == "lg" {
-        @include large-screen-only {
-          grid-column: $col-span;
-        }
-      }
-    }
-
-    .row-#{$size-name}-#{$i} {
-      $row-span: auto / span $i;
-
-      // This is annoying... but SCSS doesn't accept interpolation in variable names
-      // yet. Refactor this when that's possible.
-      @if $size-name == "sm" {
-        @include small-screen-only {
-          grid-row: $row-span;
-        }
-      }
-      @else if $size-name == "md" {
-        @include medium-screen-only {
-          grid-row: $row-span;
-        }
-      }
-      @else if $size-name == "lg" {
-        @include large-screen-only {
-          grid-row: $row-span;
-        }
-      }
-    }
-
   }
 }

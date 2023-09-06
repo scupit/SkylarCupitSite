@@ -20,3 +20,28 @@
 .flex-1 {
   flex: 1;
 }
+
+$size-map: (
+  "lg": $spacing-lg,
+  "md": $spacing-md,
+  "sm": $spacing-sm
+);
+
+$position-map: (
+  "t": "top",
+  "l": "left",
+  "r": "right",
+  "b": "bottom"
+);
+
+@each $spacing-suffix, $spacing-value in $size-map {
+  @each $position-suffix, $position-name in $position-map {
+    .m#{$position-suffix}-#{$spacing-suffix} {
+      margin-#{$position-name}: $spacing-value
+    }
+
+    .b#{$position-suffix}-#{$spacing-suffix} {
+      border-#{$position-name}: $spacing-value
+    }
+  }
+}
