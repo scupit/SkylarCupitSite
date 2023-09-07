@@ -1,6 +1,7 @@
 @use "mixins" as *;
 @use "palette" as *;
 @use "common" as *;
+@use "fonts" as *;
 
 .grid-2-high {
   grid-row: span 2;
@@ -88,6 +89,7 @@ $split-card-outer-spacing: $spacing-sm;
   }
 
   & > .title:first-child {
+    @include secondary-font;
     display: block;
     border-bottom: 2px solid white;
     font-size: $fs-2;
