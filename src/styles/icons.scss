@@ -40,10 +40,10 @@
 }
 
 $icon-src-map: (
-  "github": "/resources/icons/github.svg",
-  "email": "/resources/icons/email.svg",
-  "phone": "/resources/icons/cellphone.svg",
-  "hyperlink": "/resources/icons/link-variant.svg"
+  "github": "/assets/icons/github.svg",
+  "email": "/assets/icons/email.svg",
+  "phone": "/assets/icons/cellphone.svg",
+  "hyperlink": "/assets/icons/link-variant.svg"
 );
 
 @each $src-name, $src-url in $icon-src-map {

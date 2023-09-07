@@ -1,37 +1,29 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TsConfigPathsWebpackPlugin = require('tsconfig-paths-webpack-plugin');
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
-const fs = require("fs");
 const path = require("path");
-const Mustache = require("mustache");
 const { merge } = require("webpack-merge")
-
-// Gets content of the html or mustache 'partial' file as a string.
-function resolvePartial(relativeFileName) {
-  const srcPathWithoutExtension = path.resolve("src", relativeFileName);
-
-  for (const ext of ["html", "mustache"]) {
-    const filePath = `${srcPathWithoutExtension}.${ext}`;
-
-    if (fs.existsSync(filePath)) {
-      return fs.readFileSync(filePath).toString();
-    }
-  }
-  throw ReferenceError(`Could not find partial at path ${srcPathWithoutExtension}.`);
-}
 
 module.exports = (_env, argv) => {
   const isDevMode = argv.mode !== "production";
+  const options = { isDevMode };
+
   console.error(`MODE: ${argv.mode}`)
-  return merge(
-    commonConfig(isDevMode),
-    isDevMode ? devOnlyConfig() : prodOnlyConfig()
-  );
+  return merge(commonConfig(options), specificConfig(options));
 }
 
-function commonConfig(isDevMode) {
+function specificConfig(options) {
+  return options.isDevMode
+    ? devOnlyConfig(options)
+    : prodOnlyConfig(options)
+}
+
+function commonConfig(options) {
+  const { isDevMode } = options;
+
   return {
     module: {
       rules: [
@@ -78,29 +70,29 @@ function commonConfig(isDevMode) {
           }
         },
         {
-          test: /\.(mustache|html)$/,
+          test: /\.(hbs|handlebars)$/,
           exclude: /node_modules/,
-          use: {
-            loader: "html-loader",
-            // Important note: Files in partials/ are NOT watched by Webpack. While developing, any changes
-            // made to a HTML or Mustache file located in partials/ will only be reflected by modifying and
-            // saving the ENTRY HTML/Mustache file it's directly or indirectly included into. And even then,
-            // the changes will only be reflected in the entry file which was edited. To have the changes
-            // be globally reflected, restart Webpack's dev server. The idea is that partials are global
-            // components, and shouldn't be modified too much if possible.
-            options: {
-              sources: true,
-              preprocessor: (content, loaderContext) => {
-                try {
-                  return Mustache.render(content, { }, resolvePartial);
-                }
-                catch (err) {
-                  loaderContext.emitError(err);
-                  return content;
-                }
-              }
-            }
+          loader: "handlebars-loader",
+          options: {
+            partialDirs: [
+              // Allows you to globally use any partials defined in this directory.
+              // src/partials/my-partial.hbs can be imported with {{> my-partial}}
+              path.join(__dirname, "src", "partials")
+            ],
+            // Cause the loader to emit requires(...) statements for asset file paths.
+            // This essentially makes Webpack aware of used assets, so they are automatically
+            // wired through the rest of Webpack's build process.
+            inlineRequires: /assets\//
           }
+        },
+        {
+          test: /\.html$/,
+          exclude: /node_modules/,
+          loader: "html-loader"
+        },
+        {
+          test: /\.(webp|webm|png|jpg|svg|ico)$/,
+          type: "asset/resource"
         }
       ]
     },
@@ -116,22 +108,30 @@ function commonConfig(isDevMode) {
     output: {
       filename: isDevMode ? 'js/[name].js' : 'js/[name].[chunkhash].js',
       chunkFilename: '[name].[chunkhash].js',
-      publicPath: "/"
+      publicPath: "/",
+      assetModuleFilename: "assets/[hash].v1[ext][query]"
     },
     plugins: [
+      new CopyPlugin({
+        patterns: [
+          { from: "assets/favicon.svg", to: "favicon.svg" },
+          { from: "assets/favicon.ico", to: "favicon.ico" },
+          { from: "assets/apple-touch-icon.png", to: "apple-touch-icon.png" },
+        ]
+      }),
       new HtmlWebpackPlugin({
         filename: "index.html",
-        template: "src/index.mustache",
+        template: "src/index.hbs",
         chunks: ["index"]
       }),
       new HtmlWebpackPlugin({
         filename: "to-learn/index.html",
-        template: "src/pages/to-learn/to-learn.mustache",
+        template: "src/pages/to-learn/to-learn.hbs",
         chunks: ["index"]
       }),
       new HtmlWebpackPlugin({
         filename: "portfolio/index.html",
-        template: "src/pages/portfolio/portfolio.mustache",
+        template: "src/pages/portfolio/portfolio.hbs",
         chunks: ["index"]
       }),
       new MiniCssExtractPlugin({
@@ -143,7 +143,7 @@ function commonConfig(isDevMode) {
   } 
 }
 
-function devOnlyConfig() {
+function devOnlyConfig(_options) {
   return {
     mode: "development",
     devtool: "source-map",
@@ -151,7 +151,18 @@ function devOnlyConfig() {
       static: './dist',
       compress: true,
       port: 3000,
-      hot: true
+      hot: true,
+      allowedHosts: [
+        // Allow other devices on LAN to access the dev server using local hostnames.
+        // For example, a dev server instance hosted on a Raspberry Pi with hostname
+        // RaspberryPi could be accessed using the URL http://raspberrypi.local:3000/
+        // on other devices on the same network.
+        ".local"
+      ],
+      watchFiles: [
+        "src/**/*",
+        "assets/**/*"
+      ]
     }
   }
 }

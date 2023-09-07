@@ -1,11 +1,5 @@
 import "styles/index.scss";
 
-import "index.mustache";
-import "pages/portfolio/portfolio.mustache";
-import "pages/to-learn/to-learn.mustache";
-import "partials/link-bar.mustache";
-import "partials/shared-metadata.mustache";
-
 let paletteIndex: number = loadPaletteIndex();
 
 if (document.readyState === "loading") {
