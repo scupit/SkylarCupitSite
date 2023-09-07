@@ -1,58 +1,62 @@
 <!DOCTYPE html>
-  <head>
-    {{> shared-metadata }}
-    <title>Skylar Cupit</title>
-  </head>
-  <body>
-    {{> link-bar }}
 
-    <main id="content">
-      <div class="title card">
-        <h1 class="page-title">Welcome to my site!</h1>
-      </div>
+<head>
+  {{> shared-metadata }}
+  <title>Skylar Cupit</title>
+</head>
 
-      <div class="split-card-grid mt-md">
-        <div>
-          <h2 class="title">Contact</h2>
-          <div class="centered-body ai-center">
-            <table id="contacts-table" class="large-links">
-              <tr>
-                <td><span class="icon bg-white email-src"></span></td>
-                <td><a href="mailto: Skylarcupit@gmail.com">Skylarcupit@gmail.com</a></td>
-              </tr>
-              <tr>
-                <td><span class="icon bg-white github-src"></span></td>
-                <td><a href="https://github.com/scupit">https://github.com/scupit</a></td>
-              </tr>
-            </table>
-          </div>
-        </div>
+<body>
+  {{> link-bar }}
 
-        <div>
-          <h2 class="title">About Me</h2>
-          <div class="huge-vertical-padding centered-body">
-            <h3><i>Hi, I'm Skylar</i></h3>
-            <br />
-            <p>
-              I'm a 23 year old programmer from Austin, Texas who enjoys exploring the world of computers
-              and software. I spend most of my time programming, but I also love soccer, music, and hanging
-              out on the beach.
-            </p>
-            <br />
-            <p>
-              This is my site, made for fun and practice. It's written in <a href="https://mustache.github.io/">Mustache</a>,
-              <a href="https://sass-lang.com/">SCSS</a>, and <a href="https://www.typescriptlang.org/">TypeScript</a>,
-              and packaged using <a href="https://webpack.js.org/">Webpack</a>.
-            </p>
-          </div>
-        </div>
-        
-        <div class="ai-center">
-          <figure class="centered-body">
-            <img src="../assets/SkyLogo.svg"/>
-          </figure>
+  <main id="content">
+    <div class="title card">
+      <h1 class="page-title">Welcome to my site!</h1>
+    </div>
+
+    <div class="split-card-grid mt-md">
+      <div>
+        <h2 class="title">Contact</h2>
+        <div class="centered-body ai-center">
+          <table id="contacts-table" class="large-links">
+            <tr>
+              <td><span class="icon bg-white email-src"></span></td>
+              <td><a href="mailto: Skylarcupit@gmail.com">Skylarcupit@gmail.com</a></td>
+            </tr>
+            <tr>
+              <td><span class="icon bg-white github-src"></span></td>
+              <td><a href="https://github.com/scupit">https://github.com/scupit</a></td>
+            </tr>
+          </table>
         </div>
       </div>
-    </main>
-  </body>
+
+      <div>
+        <h2 class="title">About Me</h2>
+        <div class="huge-vertical-padding centered-body">
+          <h3><i>Hi, I'm Skylar</i></h3>
+          <br />
+          <p>
+            I'm a 23 year old programmer from Austin, Texas who enjoys exploring the world of computers
+            and software. I spend most of my time programming, but I also love soccer, music, and hanging
+            out on the beach.
+          </p>
+          <br />
+          <p>
+            This website is written in <a href="https://handlebarsjs.com/">Handlebars</a>,
+            <a href="https://sass-lang.com/">SCSS</a>, and <a href="https://www.typescriptlang.org/">TypeScript</a>,
+            and packaged using <a href="https://webpack.js.org/">Webpack</a>. Check out the <a
+               href="https://github.com/scupit/SkylarCupitSite">source code on GitHub!</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="ai-center">
+        <figure class="centered-body">
+          <img src="../assets/SkyLogo.svg" />
+        </figure>
+      </div>
+    </div>
+  </main>
+</body>
+
 </html>

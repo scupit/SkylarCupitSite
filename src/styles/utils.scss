@@ -1,3 +1,15 @@
+.float-r {
+  float: right;
+}
+
+.float-l {
+  float: left;
+}
+
+.clear-float {
+  clear: both;
+}
+
 .huge-vertical-padding {
   $padding-amount: $spacing-lg * 4;
   padding-top: $padding-amount;
@@ -20,15 +32,12 @@
   height: 100%;
 }
 
-.vertically-spaced {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .d-flex {
   display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .flex-1 {
