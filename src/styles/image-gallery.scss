@@ -1,5 +1,5 @@
-@import "card";
-@import "common";
+@use "card" as *;
+@use "common" as *;
 
 .gallery-root {
   grid-column: 1 / -1;

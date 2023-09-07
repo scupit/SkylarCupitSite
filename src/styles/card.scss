@@ -1,6 +1,6 @@
-@import "common";
-@import "mixins";
-@import "fonts";
+@use "common" as *;
+@use "mixins" as *;
+@use "fonts" as *;
 
 .card {
   @include slight-shadow;

@@ -1,6 +1,6 @@
-@import "mixins";
-@import "palette";
-@import "common";
+@use "mixins" as *;
+@use "palette" as *;
+@use "common" as *;
 
 .grid-2-high {
   grid-row: span 2;

@@ -1,14 +1,14 @@
-@import "normalize.css";
+@use "common" as *;
+@use "card" as *;
+@use "image-gallery" as *;
+@use "palette" as *;
+@use "basic-grid" as *;
+@use "mixins" as *;
+@use "icons" as *;
+@use "utils" as *;
+@use "fonts" as *;
 
-@import "common";
-@import "card";
-@import "image-gallery";
-@import "palette";
-@import "basic-grid";
-@import "mixins";
-@import "icons";
-@import "utils";
-@import "fonts";
+@import "normalize.css";
 
 :root {
   @include primary-font;

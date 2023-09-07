@@ -114,6 +114,7 @@ function commonConfig(options) {
     plugins: [
       new CopyPlugin({
         patterns: [
+          { from: "robots.txt", to: "robots.txt" },
           { from: "assets/favicon.svg", to: "favicon.svg" },
           { from: "assets/favicon.ico", to: "favicon.ico" },
           { from: "assets/apple-touch-icon.png", to: "apple-touch-icon.png" },

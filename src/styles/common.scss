@@ -1,4 +1,4 @@
-@import "palette";
+@use "palette" as *;
 
 // Font sizes
 $fs-1: 3rem;

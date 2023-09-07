@@ -1,3 +1,5 @@
+@use "common" as *;
+
 // Must be provided a mask image using <icon-name>-src and a background color
 // using bg-<color>.
 // For example, <span class="icon bg-white github-src fs-2"></span>

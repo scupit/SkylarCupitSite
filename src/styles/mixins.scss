@@ -1,3 +1,5 @@
+@use "common" as *;
+
 @mixin slight-shadow {
   box-shadow: 0 3px 5px -3px lighten(black, 25%);
 }
