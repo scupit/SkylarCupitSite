@@ -120,7 +120,7 @@ video {
   border-radius: $br-sm;
 }
 
-#nav-area {
+#main-navbar {
   @include slight-shadow;
 
   display: flex;
@@ -213,7 +213,7 @@ main, #content {
 }
 
 @media screen and (max-width: 480px) {
-  #nav-area {
+  #main-navbar {
     flex-direction: column;
     padding-bottom: $spacing-sm;
 
@@ -229,7 +229,7 @@ main, #content {
     padding-right: 15vw;
   }
 
-  #nav-area > div {
+  #main-navbar > div {
     padding-left: 0;
     padding-right: 0;
   

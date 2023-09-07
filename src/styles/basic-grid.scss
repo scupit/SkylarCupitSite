@@ -17,9 +17,9 @@
 // .grid-basic:not([columns-wide=1]) .grid-2-wide
 // TODO: Maybe fix this, if it becomes an issue.
 
-.grid-2-wide {
-  // grid-column: span 2;
-}
+// .grid-2-wide {
+//   grid-column: span 2;
+// }
 
 @for $i from 0 through 20 {
   .card:nth-child(#{$i}) {
@@ -38,7 +38,6 @@
 .grid-basic + .grid-basic {
   margin-top: $spacing-lg;
 }
-
 
 // ########################################
 // Split card grid
