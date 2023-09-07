@@ -8,11 +8,12 @@
 @import "mixins";
 @import "icons";
 @import "utils";
+@import "fonts";
 
 :root {
+  @include primary-font;
   font-size: 18px;
-  // font-family: Arial, Helvetica, sans-serif;
-  // line-height: 1.2;
+  line-height: 1.2;
 }
 
 body {
@@ -84,6 +85,10 @@ p {
   font-size: $fs-p;
 }
 
+p ~ p {
+  margin-top: 0;
+}
+
 img {
   max-width: 100%;
 }
@@ -109,7 +114,9 @@ table {
 
 video {
   @include slight-shadow;
-  max-width: 700px;
+  display: block;
+  margin: auto;
+  max-width: min(700px, 100%);
   border-radius: $br-sm;
 }
 
@@ -168,6 +175,7 @@ video {
 
   .site-title {
     @include raised-hover;
+    @include secondary-font;
     color: white;
     font-weight: bold;
     font-size: $fs-3;
@@ -189,6 +197,7 @@ video {
 
 .subtitle + .subtitle {
   font-size: $fs-p;
+  margin-top: $spacing-lg;
 }
 
 main, #content {
@@ -242,6 +251,10 @@ main, #content {
 }
 
 @media (max-width: $screen-width-small) {
+  :root {
+    font-size: 16px;
+  }
+
   #nav-links-container {
     margin-top: $spacing-sm;
     border-top: 4px double white;

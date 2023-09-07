@@ -23,6 +23,7 @@
 
 @for $i from 0 through 20 {
   .card:nth-child(#{$i}) {
+  // *:nth-child(#{$i}) {
     // TODO: Refactor this so the slide-in code is not duplicated for each card.
     @include basic-slide-in($i);
   }

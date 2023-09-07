@@ -50,3 +50,7 @@ done
 ```
 
 The range between 15% and 30% seems to be an ideal middle ground between resolution and file size.
+
+## Fonts
+
+- [Quicksand](https://fonts.google.com/specimen/Quicksand)

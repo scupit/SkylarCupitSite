@@ -79,9 +79,9 @@ function commonConfig(options) {
               // src/partials/my-partial.hbs can be imported with {{> my-partial}}
               path.join(__dirname, "src", "partials")
             ],
-            // Cause the loader to emit requires(...) statements for asset file paths.
+            // Causes the loader to emit requires(...) statements for asset file paths.
             // This essentially makes Webpack aware of used assets, so they are automatically
-            // wired through the rest of Webpack's build process.
+            // wired through the rest of the build process.
             inlineRequires: /assets\//
           }
         },
@@ -109,7 +109,7 @@ function commonConfig(options) {
       filename: isDevMode ? 'js/[name].js' : 'js/[name].[chunkhash].js',
       chunkFilename: '[name].[chunkhash].js',
       publicPath: "/",
-      assetModuleFilename: "assets/[hash].v1[ext][query]"
+      assetModuleFilename: "assets/[hash][ext][query]"
     },
     plugins: [
       new CopyPlugin({
@@ -167,7 +167,7 @@ function devOnlyConfig(_options) {
   }
 }
 
-function prodOnlyConfig() {
+function prodOnlyConfig(_options) {
   return {
     mode: "production",
     plugins: [
