@@ -17,7 +17,8 @@
 :root {
   @include define-palette("0", #87c0c8, #e9f8ff, #d1d07d);
   @include define-palette("1", #87c887, #e9ffe9, #76e4c5);
-  @include define-palette("2", #c88787, #ffe9e9, #be1212);
+
+  @include define-palette("2", #c88787, #ffe9e9, #aca1d0);
 
   $default-before-fade: rgba(0, 0, 0, 0);
 
