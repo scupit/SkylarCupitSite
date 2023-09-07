@@ -36,7 +36,7 @@
 
     color: white;
     background-color: var(--primary);
-    // background-color: var(--accent);
+    // background-color: var(--primary-dark);
     border-radius: $br-sm $br-sm 0 0;
   }
 
@@ -120,8 +120,8 @@
 
   background: linear-gradient(
     to right,
-    var(--contrast-bg-dark),
-    var(--tertiary)
+    var(--accent-darker),
+    var(--accent)
   );
 
   // grid-column: 1 / -1;

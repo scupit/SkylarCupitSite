@@ -35,8 +35,8 @@ a {
 button {
   // display: none;
   padding: $spacing-sm;
-  color: var(--darkest-accent);
-  border: 2px solid var(--darkest-accent);
+  color: var(--primary-darkest);
+  border: 2px solid var(--primary-darkest);
   background-color: var(--secondary);
   border-radius: $spacing-sm;
 
@@ -52,7 +52,7 @@ button {
 
   &:active {
     color: white;
-    background-color: var(--dark-accent);
+    background-color: var(--primary-darker);
   }
 }
 
@@ -134,9 +134,9 @@ video {
   max-width: 100%;
   background: linear-gradient(
     45deg,
-    var(--darkest-accent) 0 20%,
-    var(--dark-accent) 20% 30%,
-    var(--accent) 30% 40%,
+    var(--primary-darkest) 0 20%,
+    var(--primary-darker) 20% 30%,
+    var(--primary-dark) 30% 40%,
     var(--primary) 40% 50%
   );
 
@@ -181,7 +181,7 @@ video {
     font-size: $fs-3;
     display: flex;
     align-items: center;
-    text-shadow: 2px 2px var(--accent);
+    text-shadow: 2px 2px var(--primary-dark);
   }
 }
 

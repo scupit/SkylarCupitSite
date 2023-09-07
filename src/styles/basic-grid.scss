@@ -78,7 +78,7 @@ $split-card-outer-spacing: $spacing-sm;
     @include basic-slide-in(2);
     @include slight-shadow;
 
-    background-color: var(--accent);
+    background-color: var(--primary-dark);
 
     flex: 2;
     min-width: min(400px, 50vw);

@@ -1,17 +1,17 @@
-@mixin define-palette($suffix, $primary-color, $secondary-color, $tertiary-color) {
+@mixin define-palette($suffix, $primary-color, $secondary-color, $accent-color) {
   --primary#{$suffix}: #{$primary-color};
   --secondary#{$suffix}: #{$secondary-color};
-  --tertiary#{$suffix}: #{$tertiary-color};
+  --accent#{$suffix}: #{$accent-color};
 
   --card-bg#{$suffix}: #{lighten($primary-color, 13%)};
-  --contrast-bg#{$suffix}: #{darken($tertiary-color, 10%)};
-  --contrast-bg-dark#{$suffix}: #{darken($tertiary-color, 20%)};
+  --accent-dark#{$suffix}: #{darken($accent-color, 10%)};
+  --accent-darker#{$suffix}: #{darken($accent-color, 20%)};
 
-  $accent: darken($primary-color, 10%);
-  --accent#{$suffix}: #{$accent};
-  $dark-accent: darken($accent, 10%);
-  --dark-accent#{$suffix}: #{$dark-accent};
-  --darkest-accent#{$suffix}: #{darken($dark-accent, 10%)};
+  $primary-dark: darken($primary-color, 10%);
+  --primary-dark#{$suffix}: #{$primary-dark};
+  $primary-darker: darken($primary-dark, 10%);
+  --primary-darker#{$suffix}: #{$primary-darker};
+  --primary-darkest#{$suffix}: #{darken($primary-darker, 10%)};
 }
 
 :root {
@@ -23,13 +23,13 @@
 
   --primary: $default-before-fade;
   --secondary: $default-before-fade;
-  --tertiary: $default-before-fade;
+  --accent: $default-before-fade;
 
   --card-bg: $default-before-fade;
-  --contrast-bg: $default-before-fade;
-  --contrast-bg-dark: $default-before-fade;
+  --accent-dark: $default-before-fade;
+  --accent-darker: $default-before-fade;
 
-  --accent: $default-before-fade;
-  --dark-accent: $default-before-fade;
-  --darkest-accent: $default-before-fade;
+  --primary-dark: $default-before-fade;
+  --primary-darker: $default-before-fade;
+  --primary-darkest: $default-before-fade;
 }

@@ -42,13 +42,13 @@ function selectPalette(index: number) {
   const propertyList: string[] = [
     "primary",
     "secondary",
-    "tertiary",
-    "card-bg",
-    "contrast-bg",
-    "contrast-bg-dark",
     "accent",
-    "dark-accent",
-    "darkest-accent",
+    "card-bg",
+    "accent-dark",
+    "accent-darker",
+    "primary-dark",
+    "primary-darker",
+    "primary-darkest",
   ];
 
   for (const propertyName of propertyList) {

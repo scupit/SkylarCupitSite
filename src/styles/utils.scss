@@ -91,7 +91,7 @@ $bg-color-map: (
   "black": black,
   "primary": var(--primary),
   "secondary": var(--secondary),
-  "accent": var(--accent)
+  "primary-dark": var(--primary-dark)
 );
 
 @each $color-name, $color-value in $bg-color-map {
