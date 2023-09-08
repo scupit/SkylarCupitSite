@@ -1,3 +1,4 @@
+import "normalize.css";
 import "styles/index.scss";
 
 let paletteIndex: number = loadPaletteIndex();

@@ -171,6 +171,9 @@ function devOnlyConfig(_options) {
 function prodOnlyConfig(_options) {
   return {
     mode: "production",
+    optimization: {
+      minimize: true
+    },
     plugins: [
       new CompressionWebpackPlugin({
         filename: "[path][base].gz"

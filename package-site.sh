@@ -1,10 +1,19 @@
+if [[ -d './dist' ]]; then
+  echo 'Removing old build directory.'
+  rm -r ./dist
+fi
+
+if [[ -f 'my_site.tar.gz' ]]; then
+  echo 'Removing old build archive file.'
+  rm ./my_site.tar.gz
+fi
+
 yarn run prod
 
 cd resume
 package-resume.sh
 cd ..
 
-rm -r dist/resume
 cp -r resume/dist dist/resume
 
 7z a -ttar my_site.tar dist
