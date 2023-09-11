@@ -11,6 +11,11 @@
 // @import "normalize.css";
 
 :root {
+  --notch-right: env(safe-area-inset-right);
+  --notch-left: env(safe-area-inset-left);
+  --notch-horizontal: max(env(safe-area-inset-right), env(safe-area-inset-left));
+  --notch-vertical: max(env(safe-area-inset-top), env(safe-area-inset-bottom));
+
   @include primary-font;
   font-size: 18px;
   line-height: 1.2;
@@ -32,7 +37,7 @@ a {
   padding: calc($spacing-sm / 2);
 }
 
-button {
+button, .button {
   // display: none;
   padding: $spacing-sm;
   color: var(--primary-darkest);
@@ -59,8 +64,8 @@ button {
 code {
   @include slight-shadow-inset;
   background-color: var(--secondary);
-  padding: $spacing-sm;
-  // box-shadow: 2px 2px 2px 0 black inset;
+  padding: 0 $spacing-sm;
+  border-radius: $br-sm;
   overflow: scroll;
   white-space: nowrap;
 }
@@ -90,6 +95,7 @@ p ~ p {
 }
 
 img {
+  display: block;
   max-width: 100%;
 }
 
@@ -99,7 +105,6 @@ ol, ul {
 
 table {
   td {
-    display: inline-block;
     padding: $spacing-sm 0;
   }
 
@@ -131,6 +136,9 @@ video {
   align-items: center;
   z-index: 1;
 
+  padding-left: 15vw;
+  padding-right: 15vw;
+
   max-width: 100%;
   background: linear-gradient(
     45deg,
@@ -145,32 +153,26 @@ video {
   border-top: 2px solid var(--primary);
   // transition: border-color 1s ease;
 
-  & > div {
-    padding: 0 $spacing-lg;
-  }
-
-  & > .no-left-pad {
-    padding-left: 0;
-  }
-
   #nav-links-container {
     display: flex;
     flex: 1;
     flex-wrap: wrap;
     // flex-direction: column;
     justify-content: center;
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
     
     a {
       color: white;
+      margin: 0 $spacing-sm;
+      padding: $spacing-sm;
     }
   }
 
   a {
     font-size: 1.3rem;
     position: relative;
-    margin: 0 $spacing-sm;
     text-decoration: none;
-    padding: $spacing-sm;
   }
 
   .site-title {
@@ -185,8 +187,13 @@ video {
   }
 }
 
+.fit-viewport {
+  max-width: 50vmin;
+  max-height: 50vmin;
+}
+
 .site-nav-image {
-  max-height: $fs-3;
+  max-height: $fs-2;
   margin-right: $spacing-sm;
 }
 
@@ -202,7 +209,7 @@ video {
 
 main, #content {
   margin: 0;
-  padding: $spacing-lg $spacing-lg * 2;
+  padding: $spacing-lg ($spacing-lg * 2);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -212,47 +219,34 @@ main, #content {
   color: revert;
 }
 
-@media screen and (max-width: 480px) {
-  #main-navbar {
-    flex-direction: column;
-    padding-bottom: $spacing-sm;
-
-    .site-title {
-      padding-bottom: $spacing-md;
-    }
-  }
-}
-
 @media (min-width: $screen-width-large) {
-  nav {
-    padding-left: 15vw;
-    padding-right: 15vw;
-  }
-
-  #main-navbar > div {
-    padding-left: 0;
-    padding-right: 0;
-  
-    .site-title {
-      margin-left: -$spacing-sm;
-    }
-  }
-
   main, #content {
     padding-left: 15vw;
     padding-right: 15vw;
+  }
+}
+
+@media (max-width: $screen-width-large) {
+  #main-navbar {
+    padding-right: max($spacing-md, var(--notch-right));
+    padding-left: max($spacing-md, var(--notch-left));
   }
 }
 
 @media (max-width: $screen-width-small) or (max-height: $screen-height-small) {
   main, #content {
-    padding: $spacing-md;
+    padding: $spacing-md max($spacing-md, var(--notch-horizontal));
   }
 }
 
 @media (max-width: $screen-width-small) {
   :root {
     font-size: 16px;
+  }
+
+  #main-navbar {
+    flex-direction: column;
+    padding-bottom: $spacing-sm;
   }
 
   #nav-links-container {
