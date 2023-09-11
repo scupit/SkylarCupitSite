@@ -12,8 +12,6 @@
   border-radius: $br-md;
   min-height: 150px;
   padding: $spacing-sm $horizontal-padding;
-  // display: flex;
-  // flex-direction: column;
 
   &.no-outer-pad {
     padding: 0;
@@ -29,14 +27,10 @@
     margin-right: $horizontal-fix;
 
     font-size: $fs-4;
-    // font-size: $fs-p;
-    // font-weight: bold;
-    // letter-spacing: 0.07em;
     text-align: center;
 
     color: white;
-    background-color: var(--primary);
-    // background-color: var(--primary-dark);
+    background-color: var(--primary-dark);
     border-radius: $br-sm $br-sm 0 0;
   }
 
@@ -124,10 +118,11 @@
     var(--accent)
   );
 
-  // grid-column: 1 / -1;
   grid-column: 1 / -1;
   padding: $spacing-lg;
   min-height: unset;
+
+  border-radius: $br-sm;
 
   & > :first-child {
     @include secondary-font;

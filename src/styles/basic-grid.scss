@@ -23,9 +23,7 @@
 // }
 
 @for $i from 0 through 20 {
-  .card:nth-child(#{$i}) {
-  // *:nth-child(#{$i}) {
-    // TODO: Refactor this so the slide-in code is not duplicated for each card.
+  .card:nth-child(#{$i}), .split-card-grid:nth-child(#{$i}) {
     @include basic-slide-in($i);
   }
 }
@@ -68,21 +66,10 @@ $split-card-outer-spacing: $spacing-sm;
   flex-direction: column;
   justify-content: flex-start;
   flex: 1 0 0%;
-  // align-self: flex-start;
-  // flex: 1 0 fit-content;
-  // flex: 1;
 
-  @for $i from 1 through 3 {
-    &:nth-child(#{$i}) {
-      @include basic-slide-in($i);
-    }
-  }
-  
   &.large {
     @include slight-shadow;
-
     background-color: var(--primary-dark);
-    // flex: 2 1 auto;
     flex: 2 1 0%;
     min-width: min(400px, 50vw);
   }
