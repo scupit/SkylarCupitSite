@@ -89,8 +89,15 @@ h3 {
   font-size: $fs-3;
 }
 
-p {
+p, q ,blockquote, li {
   font-size: $fs-p;
+}
+
+blockquote {
+  padding: $spacing-sm $spacing-lg;
+  margin-left: 0;
+  background-color: transparentize(black, 0.8);
+  border-radius: $br-md;
 }
 
 p ~ p {
@@ -104,6 +111,14 @@ img {
 
 ol, ul {
   padding-left: $spacing-lg;
+}
+
+li {
+  margin-bottom: $spacing-sm;
+}
+
+li:last-of-type {
+  margin-bottom: 0;
 }
 
 table {
@@ -248,6 +263,10 @@ main, #content {
 @media (max-width: $screen-width-small) {
   :root {
     font-size: 16px;
+  }
+
+  blockquote {
+    margin-right: 0;
   }
 
   #main-navbar {

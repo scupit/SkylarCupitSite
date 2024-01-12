@@ -1,260 +1,502 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  {{> shared-metadata }}
-  <title>Knowledge Base</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Useful Free GUI and Self-Hosted Software</title>
+  {{> shared-metadata}}
 </head>
 
 <body>
-  {{> main-navbar }}
+  {{> main-navbar}}
 
-  <div id="content">
-    <section class="grid-basic no-white-link">
-      <div class="card title">
-        <h1>Resources</h1>
-        <p class="white-title subtitle">General programming resources I've found over time. <i>This section is a
-            work-in-progress.</i></p>
-      </div>
-      <div class="card">
-        <h2 class="title">Documentation</h2>
-        <ul>
-          <li><a href="https://devdocs.io/">DevDocs</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></li>
-          <li><a href="https://en.cppreference.com/w/">cppreference</a></li>
-        </ul>
-      </div>
+  <main id="content">
+    <div class="card title">
+      <h1 id="useful-free-gui-and-self-hosted-software">Useful Free GUI and Self-Hosted Software</h1>
+      <p class="subtitle">This is my &#x201C;curated&#x201D; list of useful general-use GUI software. Most of the items
+        in this list are open source. All of them are free.</p>
+    </div>
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="general" class="title">General</h2>
+        <blockquote>
+          <ul>
+            <li><a href="https://github.com/awesome-selfhosted/awesome-selfhosted">awesome-selfhosted</a>: A
+              comprehensive
+              list of self hosted software</li>
+            <li><a href="https://github.com/mikeroyal/Self-Hosting-Guide">Self-Hosting-Guide</a>: Another good list</li>
+            <li><a href="https://github.com/petersem/dockerholics">dockerholics</a>: A list of software which can be
+              hosted
+              using Docker. Looks good initially; I still have to read through the whole thing.</li>
+          </ul>
+        </blockquote>
 
-      <div class="card">
-        <h2 class="title">Optimization</h2>
         <ul>
-          <li><a href="http://www.catb.org/esr/structure-packing/">The lost art of structure packing</a></li>
-        </ul>
-      </div>
-
-      <div class="card grid-2-wide">
-        <h2 class="title">Beej's Guides</h2>
-        <ul>
-          <li><a href="https://beej.us/guide/bggdb/">Beej's Guide to GDB</a></li>
-          <li><a href="https://beej.us/guide/bgnet/">Beej's Guide to Network Programming</a></li>
-          <li><a href="https://beej.us/guide/bgipc/">Beej's Guide to Unix interprocess Communication</a></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2 class="title">Cheat Sheets</h2>
-        <ul>
-          <li><a href="https://devhints.io/bash">Bash</a></li>
-          <li><a href="https://tmuxcheatsheet.com/">tmux</a></li>
-          <li><a href="https://vim.rtorr.com/">Vim</a></li>
-          <li><a href="https://devhints.io/vim-help">Vim Helpfiles</a></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2 class="title">Discovery</h2>
-        <ul>
-          <li><a href="https://github.com/fffaraz/awesome-cpp">awesome-cpp</a></li>
-        </ul>
-      </div>
-      <!-- TODO: Add books section -->
-    </section>
-
-    <div class="grid-basic no-white-link">
-      <div class="card title">
-        <h2>Learning Board</h2>
-        <p class="white-title subtitle">Things I want to learn or am currently learning</p>
-      </div>
-      <div class="card grid-2-high">
-        <h3 class="title">Languages</h3>
-        <ul>
-          <li>C 👉</li>
-          <li>C++ 👉</li>
-          <li><a href="https://www.typescriptlang.org/">TypeScript</a> ✅</li>
-          <li>JavaScript ✅</li>
-          <li><a href="https://www.python.org/">Python</a> ✅</li>
-          <li><a href="https://kotlinlang.org/">Kotlin</a> ✅</li>
-          <li><a href="https://www.rust-lang.org/">Rust</a> 👉</li>
-          <li>Haskell 👉</li>
-          <li><a href="https://www.scala-lang.org/">Scala 3</a></li>
-          <li><a href="https://nim-lang.org/">Nim</a></li>
-          <li><a href="https://ziglang.org/">Zig</a></li>
-          <li>Swift</li>
-          <li>SQL 👉</li>
-          <li>GLSL 👉</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3 class="title">Web Markup</h3>
-        <ul>
-          <li>HTML ✅</li>
-          <li>CSS ✅</li>
-          <li>SCSS ✅</li>
-          <li>SVG</li>
-          <li>Mustache 👉</li>
-        </ul>
-      </div>
-      <div class="card grid-2-wide">
-        <h3 class="title">Build tools</h3>
-        <ul>
-          <li><a href="https://gradle.org/">Gradle</a> 👉</li>
-          <li><a href="https://ninja-build.org/">Ninja</a> ✅</li>
-          <li><a href="https://www.npmjs.com/">npm</a> 👉</li>
-          <li><a href="https://yarnpkg.com/">Yarn</a> 👉</li>
-          <li><a href="https://webpack.js.org/">Webpack</a> 👉</li>
-          <li><a href="https://cmake.org/">CMake</a> ✅</li>
-          <li><a href="https://www.docker.com/">Docker</a> (file and compose) 👉</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3 class="title">General Topics</h3>
-        <ul>
-          <li><a href="https://webassembly.org/">Web Assembly</a> 👉</li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps">Progressive Web Apps</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web
-              Workers</a></li>
-          <li>NFC Touch</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3 class="title">Misc. Configurables</h3>
-        <ul>
-          <li>Regex ✅</li>
-          <li><a href="https://www.latex-project.org/">Latex</a> from <a href="https://www.tug.org/texlive/">TexLive</a>
-          </li>
-          <li><a href="https://jupyter.org/">Jupyter Notebook</a></li>
-        </ul>
-      </div>
-
-      <div class="card grid-2-high">
-        <h3 class="title">Frameworks and Libraries</h3>
-        <ul>
-          <li><a href="https://reactjs.org/">React</a> ✅</li>
-          <li><a href="https://reactnative.dev/">React Native</a> ✅</li>
-          <li><a href="https://angular.io/">Angular</a> 👉</li>
-          <li><a href="https://vuejs.org/">Vue</a> 👉</li>
-          <li><a href="https://svelte.dev/">Svelte</a></li>
-          <li><a href="https://www.opengl.org/">OpenGL</a> 👉</li>
-          <li><a href="https://spring.io/projects/spring-boot">Spring Boot</a> 👉</li>
-          <li><a href="https://developer.android.com/jetpack/compose">Jetpack Compose</a></li>
-          <li><a href="https://www.libsdl.org/">SDL</a></li>
-          <li><a href="https://www.sfml-dev.org/">SFML</a> 👉</li>
-          <li><a href="https://www.wxwidgets.org/">WxWidgets</a></li>
-          <li><a href="https://github.com/ocornut/imgui">ImGUI</a></li>
-          <li><a href="https://www.khronos.org/webgl/">WebGL</a>, mainly with <a href="https://threejs.org/">ThreeJS</a>
+          <li>
+            <a href="https://www.voidtools.com/">voidtools Everything</a>: Really fast search tool which searches
+            across
+            all files on the entire system.
           </li>
           <li>
-            Compression libraries like:
-            <ul>
-              <li><a href="https://zlib.net/">zlib</a></li>
-              <li><a href="https://github.com/google/brotli">Brotli</a></li>
-              <li><a href="https://github.com/facebook/zstd">zstd</a></li>
-            </ul>
+            <a href="https://diskanalyzer.com/">WizTree</a>: Blazing fast disk space analyzer. Shows how much space
+            each
+            disk has left, and visually shows all files that take up the most space.
           </li>
-          <li><a href="https://www.glfw.org/">GLFW</a> 👉</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3 class="title">Data Formats</h3>
-        <ul>
-          <li>Yaml ✅</li>
-          <li>TOML</li>
-          <li>JSON ✅</li>
-          <li>XML (basics) 👉</li>
-          <li>Conf</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3 class="title">Runtimes</h3>
-        <ul>
-          <li><a href="https://nodejs.org/en/">NodeJS</a> ✅</li>
-          <li><a href="https://deno.land/">DenoJS</a> 👉</li>
-          <li><a href="https://openjdk.org/">OpenJDK</a> ✅</li>
-        </ul>
-      </div>
-
-      <div class="card grid-2-high">
-        <h3 class="title">General User Software</h3>
-        <ul>
-          <li><a href="https://developer.android.com/studio">Android Studio</a></li>
-          <li><a href="https://code.visualstudio.com/">Visual Studio Code</a> ✅</li>
-          <li><a href="https://neovim.io/">Neovim</a></li>
-          <li><a href="https://www.blender.org/">Blender</a></li>
-          <li><a href="https://www.adobe.com/products/photoshop.html">Adobe Photoshop</a></li>
-          <li><a href="https://www.adobe.com/products/premiere.html">Adobe Premiere Pro</a></li>
-          <li><a href="https://www.adobe.com/products/aftereffects.html">Adobe After Effects</a></li>
-          <li><a href="https://www.blackmagicdesign.com/products/davinciresolve">DaVinci Resolve</a></li>
-          <li><a href="https://inkscape.org/">InkScape</a></li>
-          <li><a href="https://www.unrealengine.com/en-US">Unreal Engine</a></li>
-          <li><a href="https://godotengine.org/">Godot Engine</a></li>
-          <li><a href="https://filezilla-project.org/">FileZilla</a> 👉</li>
-          <li><a href="https://www.postman.com/">Postman</a> 👉</li>
-          <li><a href="https://openhardwaremonitor.org/">Open Hardware Monitor</a></li>
-          <li><a href="https://rufus.ie/en/">Rufus</a></li>
-          <li><a href="https://getsharex.com/">ShareX</a></li>
-          <li><a href="https://www.videolan.org/">VLC Media Player</a></li>
-          <li><a href="https://obsproject.com/">OBS Studio</a></li>
-          <li><a href="https://www.voidtools.com/">Voidtools Everything</a> search</li>
-          <li><a href="https://windirstat.net/">WinDirStat</a></li>
-        </ul>
-      </div>
-
-      <div class="card grid-2-high">
-        <h3 class="title">Command Line Tools</h3>
-        <ul>
-          <li><a href="https://curl.se/">curl</a></li>
-          <li>wget</li>
-          <li><a href="https://git-scm.com/">git</a> ✅</li>
-          <li>ssh 👉</li>
-          <li>sftp 👉</li>
-          <li><a href="https://linux.die.net/man/1/rsync">rsync</a> 👉</li>
-          <li><a
-               href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy">robocopy</a>
-            👉</li>
-          <li><a href="https://pandoc.org/">pandoc</a> 👉</li>
-          <li><a href="https://www.7-zip.org/">7Zip</a> ✅</li>
-          <li><a href="https://github.com/tmux/tmux">tmux</a> 👉</li>
-          <li><a href="https://ffmpeg.org/">ffmpeg</a> 👉</li>
-          <li><a href="https://upx.github.io/">upx</a> 👉</li>
-          <li><a href="https://imagemagick.org/">imagemagick</a></li>
-          <li><a href="https://github.com/sharkdp/fd">fd</a> <code>find</code> alternative</li>
-          <li><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a> <code>grep</code> alternative</li>
-          <li><a href="https://github.com/junegunn/fzf">fzf</a> fuzzy finder</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3 class="title">Shells</h3>
-        <ul>
-          <li><a href="https://www.gnu.org/software/bash/">Bash</a> 👉</li>
-          <li><a href="https://github.com/PowerShell/PowerShell">PowerShell</a> 👉</li>
-          <li><a href="https://www.zsh.org/">zsh</a></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3 class="title">Misc. Tools</h3>
-        <ul>
-          <li><a href="https://github.com/">GitHub</a> (remote Git repos) ✅</li>
-          <li><a href="https://hub.docker.com/">Docker Hub</a> + <a href="https://docs.docker.com/registry/">remote
-              registries</a></li>
-          <li><a href="https://www.jenkins.io/">Jenkins</a></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3 class="title">Configurable Non-GUI Software</h3>
-        <ul>
-          <li><a href="https://httpd.apache.org/">Apache 2</a> HTTP server👉</li>
-          <li><a href="http://www.cups.org/">CUPS</a> print server/protocol 👉</li>
-          <li><a href="https://www.samba.org/">Samba</a> (SMB file sharing) 👉</li>
+          <li>
+            <a href="https://keepassxc.org/">KeePassXC</a>: Cross-platform open-source local-only password manager. No
+            cloud involved.
+          </li>
+          <li>
+            <a href="https://www.7-zip.org/">7Zip</a>: General file compression tool.
+          </li>
+          <li>
+            <a href="https://www.wireguard.com/">WireGuard</a>: VPN (self-hosted?)
+          </li>
+          <li>
+            <a href="https://github.com/coder/code-server">code-server</a>
+          </li>
+          <li>
+            <a href="https://github.com/VSCodium/vscodium">VSCodium</a>: VS Code core, without the telemetry.
+            Supports
+            everything that VS Code does, except for a few Microsoft extensions.
+          </li>
         </ul>
       </div>
     </div>
-  </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="interesting-ones-i-need-to-read-about" class="title">Interesting ones I need to read about</h2>
+        <ul>
+          <li><a href="https://github.com/dgtlmoon/changedetection.io">changedetection.io</a>: Automatically detect
+            changes
+            in
+            websites.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="general-administration" class="title">General Administration</h2>
+        <ul>
+          <li><a href="https://www.cups.org/">CUPS</a>: General print server</li>
+          <li><a href="https://www.samba.org/">Samba</a>: Unix SMB/CIFS file share built for compatibility with Windows
+          </li>
+          <li><a href="https://pi-hole.net/">Pi-hole</a>: &#x201C;Network-wide ad blocker&#x201D; which blocks requests
+            at the DNS level</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="organization-and-collaboration" class="title">Organization and Collaboration</h2>
+        <ul>
+          <li><a href="https://mattermost.com/">Mattermost</a>: Collaboration hub like Slack and Microsoft Teams</li>
+          <li><a href="https://nextcloud.com/about/">Nextcloud</a> (apparently also very good for file sharing) <ul>
+              <li>TODO: Look into nextcloud collectives</li>
+            </ul>
+          </li>
+          <li><a href="https://www.focalboard.com/">Focalboard</a>: Project management software</li>
+          <li><a href="https://github.com/paperless-ngx/paperless-ngx">Paperless</a> (paperless-ngx): Document
+            Management System with automatic OCR</li>
+          <li><a href="https://github.com/eikek/docspell">Docspell</a>: Document Management System with automatic OCR
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="document-editing-and-office-software" class="title">Document Editing and Office Software</h2>
+        <ul>
+          <li><a href="https://www.libreoffice.org/">LibreOffice</a> (LibreOffice Draw can be used to edit PDFs)</li>
+          <li><a href="https://www.onlyoffice.com/">OnlyOffice</a></li>
+          <li><a href="https://www.freeoffice.com/en/">FreeOffice</a> (They also have a PDF editor)</li>
+          <li><a href="https://hedgedoc.org/">Hedgedoc</a>: Web-based, self-hosted, collaborative markdown editor</li>
+          <li><a href="https://github.com/outline/outline">outline</a>: Open-source Notion alternative</li>
+          <li><a href="https://okular.kde.org/">Okular</a>: Universal document viewer</li>
+          <li><a href="https://github.com/manisandro/gImageReader">gImageReader</a>: Simple frontend to tessaract-ocr
+            (visual
+            text extraction from images and documents)</li>
+          <li><a href="https://xournalpp.github.io/">Xournal++</a>: Digital handwritten notes software. Good for marking
+            up
+            PDFs.</li>
+          <li><a href="https://github.com/pdfarranger/pdfarranger">pdfarranger</a>: Simple program for doing basic
+            operations
+            on PDFs like merging, cropping, and page reordering.</li>
+          <li><a href="https://joplinapp.org/">Joplin</a>: Open source markdown editor</li>
+          <li><a href="https://obsidian.md/">Obsidian</a>: My favorite free markdown editor. Can do much more using
+            plugins.
+          </li>
+          <li><a href="https://github.com/zadam/trilium">Trilium</a></li>
+          <li><a href="https://github.com/Zettlr/Zettlr">Zettlr</a></li>
+          <li><a href="https://github.com/Frooodle/Stirling-PDF">Stirling-PDF</a>: Self-hosted web application for
+            performing
+            various operations on PDF files</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="images" class="title">Images</h2>
+        <ul>
+          <li><a href="https://getsharex.com/">ShareX</a>: General screen capture and file sharing tool</li>
+        </ul>
+        <h3 id="photo-managers" class="title">Photo managers</h3>
+        <ul>
+          <li><a href="https://github.com/photoprism/photoprism">PhotoPrism</a>: Photo manger</li>
+          <li><a href="https://github.com/LycheeOrg/Lychee">Lychee</a>: Photo manager</li>
+        </ul>
+        <h3 id="upscalers" class="title">Upscalers</h3>
+        <ul>
+          <li><a href="https://github.com/upscayl/upscayl">Upscayl</a></li>
+        </ul>
+        <h3 id="image-editing" class="title">Image Editing</h3>
+        <ul>
+          <li><a href="https://www.darktable.org/">darktable</a>: Image organizer and color modification.</li>
+        </ul>
+        <h3 id="vector-graphics" class="title">Vector Graphics</h3>
+        <ul>
+          <li><a href="https://inkscape.org/">Inkscape</a>: Very good open-source vector graphics editor. It has some
+            hard
+            edges, but is great overall.</li>
+        </ul>
+        <h3 id="digital-painting" class="title">Digital Painting</h3>
+        <ul>
+          <li><a href="https://krita.org/">Krita</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="ui-and-ux-design" class="title">UI and UX Design</h2>
+        <ul>
+          <li><a href="https://www.figma.com/">Figma</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="2d-animation" class="title">2D Animation</h2>
+        <ul>
+          <li><a href="https://opentoonz.github.io/e/">OpenToonz</a>: Open-source animation and production software.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="video" class="title">Video</h2>
+        <ul>
+          <li><a href="https://obsproject.com/">OBS Studio</a>: Free open-source video recording and live streaming
+            software
+          </li>
+          <li><a href="https://www.blackmagicdesign.com/products/davinciresolve">DaVinci Resolve</a>: Free video
+            editing,
+            color correction, VFX, motion graphics, and more.</li>
+          <li><a href="https://kdenlive.org/en/">Kdenlive</a>: Free open-source video editor</li>
+          <li><a href="https://natrongithub.github.io/">Natron</a>: Compositing software for VFX and motion graphics
+          </li>
+        </ul>
+        <h3 id="multimedia-players" class="title">Multimedia players</h3>
+        <ul>
+          <li><a href="https://www.videolan.org/vlc/">VLC</a>: Great free multimedia player</li>
+          <li><a href="https://mpv.io/">mpv</a>: Free, open source, cross-platform media player (like VLC?)</li>
+        </ul>
+        <h3 id="video-converters" class="title">Video Converters</h3>
+        <ul>
+          <li><a href="https://github.com/HandBrake/HandBrake">Handbrake</a> video transcoder</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="d-modeling-and-rendering" class="title">3D Modeling and Rendering</h2>
+        <ul>
+          <li><a href="https://www.blender.org/">Blender</a>: Amazing 3D CG software. I can&#x2019;t believe this is
+            free
+            and
+            open source.</li>
+        </ul>
+        <h3 id="cad-software" class="title">CAD Software</h3>
+        <ul>
+          <li><a href="https://brlcad.org/">brl-cad</a></li>
+          <li><a href="https://www.freecad.org/">FreeCAD</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="audio" class="title">Audio</h2>
+        <ul>
+          <li><a href="https://tenacityaudio.org/">Tenacity</a>: A fork of <a
+               href="https://www.audacityteam.org/">Audacity</a> audio editor, just without potential telemetry.</li>
+          <li><a href="https://www.ocenaudio.com/en/startpage">OcenAudio</a>: Another cross-platform audio editor</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="monitoring" class="title">Monitoring</h2>
+        <p>Not entirely sure what these are for, but I&#x2019;m writing them down in case I find them useful in the
+          future.
+        </p>
+        <ul>
+          <li><a href="https://grafana.com/">grafana</a></li>
+          <li><a href="https://prometheus.io/">prometheus</a> (has something called AlertManager. Does this interface
+            with
+            grafana?)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="communication" class="title">Communication</h2>
+        <ul>
+          <li><a href="https://discord.com/">Discord</a>: General chat, audio call, and video call software.</li>
+          <li><a href="https://github.com/thelounge/thelounge">thelounge</a>: Self-hosted IRC messenger (maybe
+            don&#x2019;t
+            use, I think IRC is very insecure by default.)</li>
+          <li><a href="https://signal.org/#signal">Signal Messenger</a>: Open source end-to-end encrypted communication
+            like
+            WhatsApp, but not owned by Facebook.</li>
+          <li><a href="https://jitsi.org/">Jitsi</a>: Free open-source video conferencing software (Zoom alternative)
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="nfc" class="title">NFC</h2>
+        <ul>
+          <li><a href="https://www.wakdev.com/en/apps/nfc-tools-pc-mac.html">NFC Tools</a>: GUI for reading and writing
+            NFC
+            chips.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="wiki" class="title">Wiki</h2>
+        <ul>
+          <li><a href="https://github.com/gollum/gollum">gollum</a></li>
+          <li><a href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a></li>
+          <li><a href="https://www.bookstackapp.com/">BookStack</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="bookmark-manager" class="title">Bookmark Manager</h2>
+        <ul>
+          <li><a href="https://github.com/go-shiori/shiori">Shiori</a></li>
+          <li><a href="https://github.com/sissbruecker/linkding">Linkding</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="media" class="title">Media</h2>
+        <ul>
+          <li><a href="https://www.plex.tv/">Plex</a> Streaming, and also a media server. This site might be great for
+            show
+            discovery.</li>
+          <li><a href="https://jellyfin.org/">Jellyfin</a></li>
+          <li><a href="https://kodi.tv/">Kodi</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="file-management" class="title">File Management</h2>
+        <h3 id="deduplication" class="title">Deduplication</h3>
+        <ul>
+          <li><a href="https://github.com/qarmin/czkawka">czkawka</a></li>
+        </ul>
+        <h3 id="nas-storage" class="title">NAS Storage</h3>
+        <ul>
+          <li><a href="https://www.truenas.com/">TrueNAS</a></li>
+          <li><a href="https://www.openmediavault.org/">OpenMediaVault</a></li>
+        </ul>
+        <h3 id="file-transfer" class="title">File Transfer</h3>
+        <ul>
+          <li><a href="https://filezilla-project.org/">FileZilla</a>: FTP client</li>
+        </ul>
+        <h3 id="file-sharing" class="title">File Sharing</h3>
+        <ul>
+          <li><a href="https://www.projectsend.org/">ProjectSend</a> self-hosted file share</li>
+          <li><a href="https://www.linshare.org/">LinShare</a> self-hosted file share</li>
+          <li><a href="https://owncloud.com/">ownCloud</a></li>
+          <li><a href="https://github.com/timvisee/send">send</a></li>
+          <li><a href="https://github.com/sigoden/dufs">dufs</a></li>
+          <li><a href="https://filerun.com/">FileRun</a></li>
+          <li><a href="https://github.com/filebrowser/filebrowser">filebrowser</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="email-clients" class="title">Email clients</h2>
+        <ul>
+          <li><a href="https://www.thunderbird.net/en-US/">Mozilla Thunderbird</a></li>
+          <li><a href="https://www.emclient.com/pricing">eM Client</a></li>
+          <li><a href="https://outlook.live.com/owa/">Microsoft Outlook</a></li>
+          <li><a href="https://www.getmailspring.com/">MailSpring</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="homelab-dashboards" class="title">Homelab Dashboards</h2>
+        <p>Haven&#x2019;t read about these in depth; need more research.</p>
+        <ul>
+          <li><a href="https://github.com/causefx/Organizr">Organizr</a></li>
+          <li><a href="https://github.com/linuxserver/Heimdall">Heimdall</a></li>
+          <li><a href="https://github.com/bastienwirtz/homer">Homer</a></li>
+          <li><a href="https://github.com/pawelmalak/flame">Flame</a></li>
+          <li><a href="https://github.com/portainer/portainer">portainer</a> (I think this is just for managing Docker
+            containers)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="content-management-systems-cms" class="title">Content Management Systems (CMS)</h2>
+        <ul>
+          <li><a href="https://www.drupal.org/">Drupal</a></li>
+          <li><a href="https://wordpress.org/">Wordpress</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="artificial-intelligence" class="title">Artificial Intelligence</h2>
+        <ul>
+          <li><a href="https://github.com/jmorganca/ollama">Ollama</a>: Docker-like system for hosting LLMs (Large
+            LAnguage
+            Models) locally.</li>
+          <li><a href="https://github.com/AbdBarho/stable-diffusion-webui-docker">stable-diffusion-ui-docker</a>:
+            Docker-compose project for easily launching one of several <em>Stable Diffusion</em> web frontends. Of the
+            frontends, I recommend <a href="https://github.com/comfyanonymous/ComfyUI">ComfyUI</a>.</li>
+          <li><a href="https://github.com/openai/whisper">OpenAI Whisper</a>: Speech-to-text transcription for videos
+            and
+            audio files. A faster implementation is available at <a
+               href="https://github.com/SYSTRAN/faster-whisper">faster-whisper</a>, and a C/C++ port is available at <a
+               href="https://github.com/ggerganov/whisper.cpp">whisper.cpp</a>. None of the given links are GUI
+            frontends,
+            but
+            I&#x2019;m sure good Whisper UI frontends exist.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="font-editors" class="title">Font Editors</h2>
+        <ul>
+          <li><a href="https://fontforge.org/en-US/">FontForge</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="misc." class="title">Misc.</h2>
+        <ul>
+          <li><a href="https://github.com/MichMich/MagicMirror">MagicMirror</a></li>
+          <li><a href="https://www.home-assistant.io/">home-assistant</a></li>
+          <li><a href="https://goauthentik.io/">authentik</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="bittorrent-clients" class="title">BitTorrent Clients</h2>
+        <ul>
+          <li><a href="https://www.qbittorrent.org/">qBittorrent</a></li>
+          <li><a href="https://transmissionbt.com/">Transmission</a>: (Also comes with a command line interface.)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="programming" class="title">Programming</h2>
+        <ul>
+          <li><a href="https://github.com/go-gitea/gitea">gitea</a>: Self-hosted GitHub</li>
+          <li><a href="https://www.postman.com/">Postman</a>: Backend API testing and request-making GUI</li>
+          <li><a href="https://www.vmware.com/products/workstation-player.html">VMware Workstation Player</a>: Free
+            virtual
+            machine runner</li>
+          <li><a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>: GUI frontend for Docker</li>
+          <li><a href="https://rufus.ie/en/">Rufus</a>: GUI tool for creating bootable USB drives.</li>
+          <li><a href="https://openhardwaremonitor.org/">OpenHardwareMonitor</a>: Tool which monitors chip temperatures,
+            voltages, and more.</li>
+          <li><a href="https://www.cpuid.com/softwares/cpu-z.html">CPU-Z</a>: View information about some of the
+            system&#x2019;s main hardware.</li>
+          <li><a href="https://www.wireshark.org/">WireShark</a>: &#x201C;Network protocol analyzer&#x201D;;
+            Interactively
+            browse network traffic</li>
+          <li><a href="https://gnupg.org/download/index.html">Kleopatra</a>: GUI frontend for GPG made by the KDE
+            project.
+            Comes with Gpg4Win (GPG on Windows) by default.</li>
+        </ul>
+        <h3 id="ides-and-text-editors" class="title">IDEs and Text Editors</h3>
+        <ul>
+          <li><a href="https://code.visualstudio.com/">VS Code</a>: Amazing text editor. Probably the best for
+            TypeScript
+            and
+            web-related project, and second best for almost everything else.</li>
+          <li><a href="https://visualstudio.microsoft.com/">Visual Studio</a>: Microsoft&#x2019;s IDE; Primarily for C,
+            C++,
+            and C#.</li>
+        </ul>
+        <h3 id="console-emulators" class="title">Console Emulators</h3>
+        <ul>
+          <li><a href="https://dolphin-emu.org/">Dolphin</a>: GameCube and Wii emulator</li>
+          <li><a href="https://yuzu-emu.org/">yuzu</a>: Nintendo Switch emulator</li>
+          <li><a href="https://cemu.info/">cemu</a>: Wii U emulator</li>
+        </ul>
+        <h3 id="misc.-need-research" class="title">Misc. (Need research)</h3>
+        <ul>
+          <li><a href="https://swig.org/">Swig</a> (bindings generator?)</li>
+          <li><a href="https://www.d5render.com/">D5 Renderer</a></li>
+          <li><a href="https://streamlit.io/">Streamlit</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split-card-grid mt-lg">
+      <div class="large">
+        <h2 id="non-open-source" class="title">Non Open-Source</h2>
+        <ul>
+          <li><a href="https://trello.com/">Trello</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
 </body>
 
 </html>

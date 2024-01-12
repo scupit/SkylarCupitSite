@@ -24,6 +24,7 @@
 
 @mixin raised-hover {
   $transition-details: 0.12s ease-out;
+  z-index: 0;
 
   &::before {
     content: "";
@@ -51,12 +52,12 @@
 
 @keyframes slide-fade-in-anim {
   from {
-    top: 50px;
+    transform: translateY(50px);
     opacity: 0;
   }
 
   to {
-    top: 0;
+    transform: translateY(0);
     opacity: 1;
   }
 }

@@ -2,9 +2,27 @@
 @use "mixins" as *;
 @use "fonts" as *;
 
+@for $i from 1 through 10 {
+  .card:nth-of-type(#{$i}) {
+    $delay-amount: 100ms * ($i - 1);
+    @include bg-fade($delay: $delay-amount);
+
+    & > .title:first-child {
+      @include bg-fade($delay: $delay-amount);
+    }
+  }
+}
+
+*.secondary-title-bg .card .title:first-child {
+  background-color: var(--accent-darker);
+}
+
+*.no-card-shadows .card {
+  box-shadow: none;
+}
+
 .card {
   @include slight-shadow;
-  @include bg-fade;
 
   $horizontal-padding: $spacing-lg;
 
@@ -18,7 +36,6 @@
   }
 
   & > .title:first-child {
-    @include bg-fade;
     @include secondary-font;
     $horizontal-fix: -$horizontal-padding + $spacing-sm;
 

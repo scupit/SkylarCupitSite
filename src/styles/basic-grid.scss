@@ -22,16 +22,19 @@
 //   grid-column: span 2;
 // }
 
-@for $i from 0 through 20 {
-  .card:nth-child(#{$i}), .split-card-grid:nth-child(#{$i}) {
-    @include basic-slide-in($i);
-  }
-}
+// @for $i from 0 through 5 {
+//   .card:nth-of-type(#{$i}),
+//   .split-card-grid:nth-of-type(#{$i}) {
+//     @include basic-slide-in($i);
+//   }
+// }
 
 .grid-basic {
   display: grid;
+  color: initial;
   gap: $spacing-lg;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  // grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
 }
 
 .grid-basic + .grid-basic {
@@ -49,6 +52,10 @@ $split-card-outer-spacing: $spacing-sm;
   flex-direction: row;
   flex-wrap: wrap;
   margin: -$split-card-outer-spacing;
+
+  h1, h2, h3, h4, h5 {
+    @include secondary-font;
+  }
 }
 
 .split-card-grid > div {
