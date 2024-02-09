@@ -126,8 +126,8 @@ function commonConfig(options) {
         chunks: ["index"]
       }),
       new HtmlWebpackPlugin({
-        filename: "to-learn/index.html",
-        template: "src/pages/to-learn/to-learn.hbs",
+        filename: "knowledge-base/index.html",
+        template: "src/pages/knowledge-base/knowledge-base.hbs",
         chunks: ["index"]
       }),
       new HtmlWebpackPlugin({
@@ -158,7 +158,8 @@ function devOnlyConfig(_options) {
         // For example, a dev server instance hosted on a Raspberry Pi with hostname
         // RaspberryPi could be accessed using the URL http://raspberrypi.local:3000/
         // on other devices on the same network.
-        ".local"
+        ".local",
+        ".lan"
       ],
       watchFiles: [
         "src/**/*",
