@@ -26,7 +26,8 @@ $icon-src-map: (
   "github": "/assets/icons/github.svg",
   "email": "/assets/icons/email.svg",
   "phone": "/assets/icons/cellphone.svg",
-  "hyperlink": "/assets/icons/link-variant.svg"
+  "hyperlink": "/assets/icons/link-variant.svg",
+  "linkedin": "/assets/icons/linkedin.svg"
 );
 
 @each $src-name, $src-url in $icon-src-map {
