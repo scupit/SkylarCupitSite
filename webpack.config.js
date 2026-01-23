@@ -125,16 +125,6 @@ function commonConfig(options) {
         template: "src/index.hbs",
         chunks: ["index"]
       }),
-      new HtmlWebpackPlugin({
-        filename: "knowledge-base/index.html",
-        template: "src/pages/knowledge-base/knowledge-base.hbs",
-        chunks: ["index"]
-      }),
-      new HtmlWebpackPlugin({
-        filename: "portfolio/index.html",
-        template: "src/pages/portfolio/portfolio.hbs",
-        chunks: ["index"]
-      }),
       new MiniCssExtractPlugin({
         filename: isDevMode ? 'css/[name].css' : 'css/[name].[chunkhash].css',
         chunkFilename: isDevMode ? '[id].css' : '[id].[chunkhash].css',

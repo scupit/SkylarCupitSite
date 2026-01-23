@@ -1,14 +1,11 @@
 @use "common" as *;
-@use "card" as *;
-@use "image-gallery" as *;
 @use "palette" as *;
-@use "basic-grid" as *;
 @use "mixins" as *;
-@use "icons" as *;
-@use "utils" as *;
 @use "fonts" as *;
 
-// @import "normalize.css";
+// ============================================
+// Root & Base Elements
+// ============================================
 
 :root {
   --notch-right: env(safe-area-inset-right);
@@ -26,10 +23,29 @@
 
 body {
   @include bg-fade;
-  // visibility: hidden;
   background-color: var(--secondary);
   box-sizing: border-box;
   background-size: contain;
+}
+
+// ============================================
+// Typography
+// ============================================
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+h1 { font-size: $fs-1; }
+h2 { font-size: $fs-2; }
+h3 { font-size: $fs-3; }
+
+p {
+  font-size: $fs-p;
+}
+
+p ~ p {
+  margin-top: 0;
 }
 
 a {
@@ -40,88 +56,120 @@ a {
   padding: calc($spacing-sm / 2);
 }
 
-button, .button {
-  // display: none;
-  padding: $spacing-sm;
-  color: var(--primary-darkest);
-  border: 2px solid var(--primary-darkest);
-  background-color: var(--secondary);
-  border-radius: $spacing-sm;
-
-  transition:
-    background-color 1s ease,
-    border-color 1s ease
-    color 1s ease;
-
-  &:hover {
-    transition: none;
-    background-color: var(--card-bg);
-  }
-
-  &:active {
-    color: white;
-    background-color: var(--primary-darker);
-  }
-}
-
-code {
-  @include slight-shadow-inset;
-  background-color: var(--secondary);
-  padding: 0 $spacing-sm;
-  border-radius: $br-sm;
-  overflow: scroll;
-  white-space: nowrap;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-}
-
-h1 {
-  font-size: $fs-1;
-}
-
-h2 {
-  font-size: $fs-2;
-}
-
-h3 {
-  font-size: $fs-3;
-}
-
-p, q ,blockquote, li {
-  font-size: $fs-p;
-}
-
-blockquote {
-  padding: $spacing-sm $spacing-lg;
-  margin-left: 0;
-  background-color: transparentize(black, 0.8);
-  border-radius: $br-md;
-}
-
-p ~ p {
-  margin-top: 0;
-}
-
 img {
   display: block;
   max-width: 100%;
 }
 
-ol, ul {
-  padding-left: $spacing-lg;
+// ============================================
+// Layout
+// ============================================
+
+main, #content {
+  margin: 0;
+  padding: $spacing-lg ($spacing-lg * 2);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-li {
-  margin-bottom: $spacing-sm;
+// ============================================
+// Title Card
+// ============================================
+
+.card.title {
+  @include slight-shadow;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+
+  color: white;
+  background: linear-gradient(
+    to right,
+    var(--accent-darker),
+    var(--accent)
+  );
+
+  padding: $spacing-lg;
+  border-radius: $br-sm;
+
+  h1 {
+    @include secondary-font;
+    font-size: $fs-1;
+  }
+
+  .title-logo {
+    height: $fs-1;
+    width: auto;
+  }
 }
 
-li:last-of-type {
-  margin-bottom: 0;
+// ============================================
+// Split Card Grid (About Section)
+// ============================================
+
+$split-card-outer-spacing: $spacing-sm;
+
+.split-card-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: -$split-card-outer-spacing;
+
+  h1, h2, h3, h4, h5 {
+    @include secondary-font;
+  }
 }
+
+.split-card-grid > div {
+  @include bg-fade;
+
+  color: white;
+  background-color: var(--primary);
+
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  margin: $split-card-outer-spacing;
+  border-radius: $br-sm;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1 0 0%;
+
+  &.large {
+    @include slight-shadow;
+    background-color: var(--primary-dark);
+    flex: 2 1 0%;
+    min-width: min(400px, 50vw);
+  }
+
+  & > .title:first-child {
+    @include secondary-font;
+    display: block;
+    border-bottom: 2px solid white;
+    font-size: $fs-2;
+    color: white;
+  }
+
+  & > .centered-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+// ============================================
+// Table (Contacts)
+// ============================================
 
 table {
+  margin-left: auto;
+  margin-right: auto;
+
   td {
     padding: $spacing-sm 0;
   }
@@ -135,107 +183,68 @@ table {
   }
 }
 
-video {
-  @include slight-shadow;
-  display: block;
-  margin: auto;
-  max-width: min(700px, 100%);
-  border-radius: $br-sm;
+// ============================================
+// Icons
+// ============================================
+
+.icon {
+  font-size: $fs-3;
+  mask-mode: alpha;
+  mask-position: center;
+  mask-repeat: repeat;
+  mask-size: cover;
+
+  -webkit-mask-mode: alpha;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: repeat;
+  -webkit-mask-size: cover;
+
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
 }
 
-#main-navbar {
-  @include slight-shadow;
-
-  display: flex;
-  flex-direction: row;
-  position: sticky;
-  top: 0;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1;
-
-  padding-left: 15vw;
-  padding-right: 15vw;
-
-  max-width: 100%;
-  background: linear-gradient(
-    45deg,
-    var(--primary-darkest) 0 20%,
-    var(--primary-darker) 20% 30%,
-    var(--primary-dark) 30% 40%,
-    var(--primary) 40% 50%
-  );
-
-  min-height: 3rem;
-  border-bottom: 2px solid var(--primary);
-  border-top: 2px solid var(--primary);
-  // transition: border-color 1s ease;
-
-  #nav-links-container {
-    display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    // flex-direction: column;
-    justify-content: center;
-    padding-left: $spacing-md;
-    padding-right: $spacing-md;
-    
-    a {
-      color: white;
-      margin: 0 $spacing-sm;
-      padding: $spacing-sm;
-    }
-  }
-
-  a {
-    font-size: 1.3rem;
-    position: relative;
-    text-decoration: none;
-  }
-
-  .site-title {
-    @include raised-hover;
-    @include secondary-font;
-    color: white;
-    font-weight: bold;
-    font-size: $fs-3;
-    display: flex;
-    align-items: center;
-    text-shadow: 2px 2px var(--primary-dark);
-  }
+.github-src {
+  mask-image: url("/assets/icons/github.svg");
+  -webkit-mask-image: url("/assets/icons/github.svg");
 }
 
-.fit-viewport {
-  max-width: 50vmin;
-  max-height: 50vmin;
+.email-src {
+  mask-image: url("/assets/icons/email.svg");
+  -webkit-mask-image: url("/assets/icons/email.svg");
 }
 
-.site-nav-image {
-  max-height: $fs-2;
-  margin-right: $spacing-sm;
+.linkedin-src {
+  mask-image: url("/assets/icons/linkedin.svg");
+  -webkit-mask-image: url("/assets/icons/linkedin.svg");
 }
 
-.subtitle {
-  font-size: $fs-4;
-  margin: 0;
+// ============================================
+// Utilities
+// ============================================
+
+.bg-white {
+  background-color: white;
 }
 
-.subtitle + .subtitle {
-  font-size: $fs-p;
-  margin-top: $spacing-lg;
+.mt-md {
+  margin-top: $spacing-md;
 }
 
-main, #content {
-  margin: 0;
-  padding: $spacing-lg ($spacing-lg * 2);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.huge-vertical-padding {
+  $padding-amount: $spacing-lg * 4;
+  padding-top: $padding-amount;
+  padding-bottom: $padding-amount;
 }
 
-.no-white-link a {
-  color: revert;
+.secondary-font {
+  @include secondary-font;
 }
+
+// ============================================
+// Responsive
+// ============================================
 
 @media (min-width: $screen-width-large) {
   main, #content {
@@ -244,17 +253,9 @@ main, #content {
   }
 }
 
-@media (max-width: $screen-width-large) {
-  #main-navbar {
-    padding-right: max($spacing-md, var(--notch-right));
-    padding-left: max($spacing-md, var(--notch-left));
-  }
-}
-
 @media (max-width: $screen-width-small) or (max-height: $screen-height-small) {
   main, #content {
     padding:
-      // $spacing-md
       max($spacing-lg, var(--notch-bottom))
       max($spacing-md, var(--notch-horizontal));
   }
@@ -265,17 +266,7 @@ main, #content {
     font-size: 16px;
   }
 
-  blockquote {
-    margin-right: 0;
-  }
-
-  #main-navbar {
+  .card.title {
     flex-direction: column;
-    padding-bottom: $spacing-sm;
-  }
-
-  #nav-links-container {
-    margin-top: $spacing-sm;
-    border-top: 4px double white;
   }
 }
